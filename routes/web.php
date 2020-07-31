@@ -27,6 +27,7 @@ Route::get('/', function () { return redirect('/home'); });
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/index', 'UserController@index');
+    //追加分
 });
  
 /*

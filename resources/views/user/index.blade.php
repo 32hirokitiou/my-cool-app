@@ -1,67 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@extends("layouts.app")
+    <title>プロフィール画面</title>
+    </head>
+    <body>
+        <h1>
+        {{Auth::user()->name}}
+        {{Auth::user()->email}}
+        <!-- {{$user->name}}
+        {{$user->email}}
+        {{$user->email}}
+        {{$user->email}}
+        {{$user->email}} -->
+        プロフィールの編集
+
+        </h1>
+    </body>
+</html>
+
+
+<!-- @extends('layouts.user')
+
+
+{{-- user.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+@section('title', 'ニュースの新規作成')
+
+{{-- user.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>ニュース新規作成</h2>
+            </div>
+        </div>
+    </div>
+@endsection -->
 
-<div class="index-content">
 
-<div class="books-list">
-
-<div class="books-list__title mypage-color">
-
- マイページトップ
-
-</div>
-
-<div class="book-table">
-
-<div class="book-table__profile-list">
-
-<div class="profile-group">
-
-<div class="profile-group__title">ユーザー名</div>
-
-<div class="profile-group__element">{{$auth->name}}</div>
-
-</div>
-
-<div class="profile-group">
-
-<div class="profile-group__title">ユーザーID</div>
-
-<div class="profile-group__element">{{$auth->id}}</div>
-
-</div>
-
-<div class="profile-group">
-
-<div class="profile-group__title">メールアドレス</div>
-
-<div class="profile-group__element">{{$auth->email}}</div>
-
-</div>
-
-<div class="profile-group">
-
-<div class="profile-group__title">登録日時</div>
-
-<div class="profile-group__element">{{$auth->created_at}}</div>
-
-</div>
-
-<div class="profile-group">
-
-<div class="profile-group__title">最終更新日時</div>
-
-<div class="profile-group__element">{{$auth->updated_at}}</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-@endsection
