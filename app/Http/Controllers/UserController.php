@@ -9,51 +9,57 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller{
 
 
-    public function index(Request $request) {
-    $user = Auth::user();   #ログインユーザー情報を取得します。
-    return view('user/index', ['user' => $user]);
+    public function show(Request $request) {
+        $user = Auth::user();   #ログインユーザー情報を取得します。
+        return view('user/show', ['user' => $user]);
     }
 
-    // public function create()
-    // {
-    //     return view('admin.profile.create');
-    // }
 
-    // public function read()
-    // {
-    //     return redirect('admin/profile/create');
-    // }
+    public function edit(Request $request) {
+        $user = Auth::user();   #ログインユーザー情報を取得します。
+        return view('user/edit', ['user' => $user]);
+    }
 
-    // public function update()
-    // {
-    //     return view('admin.profile.edit');
-    // }
+  
 
-    // public function delete()
+    public function update(Request $request)
+    {
+        // Validationをかける
+        $this->validate($request, News::$rules);
+        // News Modelからデータを取得する
+        $user = News::find($request->id);
+        // 送信されてきたフォームデータを格納する
+        $_form = $request->all();
+        unset($news_form['_token']);
+  
+        // 該当するデータを上書きして保存する
+        $user->fill($news_form)->save();
+  
+        return redirect('user');
+    }
+  
+    // 以下を追記　　
+    // public function delete(Request $request)
     // {
-    //     return redirect('admin/profile/edit');
-    // }
-
+    //     // 該当するNews Modelを取得
+    //     $users = Users::find($request->id);
+    //     // 削除する
+    //     $users->delete();
+    //     return redirect('user'/'edit');
+    // }  
+    
 
     
-    // public function index() {
-    //     return view('user.index', ['user' => Auth::user() ]);
-    // }
-    // //userデータの編集
-    // public function edit() {
-    //     return view('user.edit', ['user' => Auth::user() ]);
-    // }
-    // //userデータの保存
-    // public function update(Request $request) {
-
-    //     $user_form = $request->all();
-    //     $user = Auth::user();
-    //     //不要な「_token」の削除
-    //     unset($user_form['_token']);
-    //     //保存
-    //     $user->fill($user_form)->save();
-    //     //リダイレクト
-    //     return redirect('user/index');
-    // }
-
 }
+
+
+    // public function delete(Request $request)
+    // {
+    //     // 該当するNews Modelを取得
+    //     $news = Mypage::find($request->id);
+    //     // 削除する
+    //     $news->delete();
+    //     return redirect('user/edit/');
+    // }  
+  
+   
