@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class UserController extends Controller{
 
@@ -17,26 +18,44 @@ class UserController extends Controller{
 
     public function edit(Request $request) {
         $user = Auth::user();   #ログインユーザー情報を取得します。
-        return view('user/edit', ['user' => $user]);
+        // $news = Auth::find($request->id);
+        return view('user/edit', ['user_form' => $user]);
+        
     }
 
-  
-
-    public function update(Request $request)
-    {
+    public function update(Request $request){
         // Validationをかける
-        $this->validate($request, News::$rules);
+        //   $this->validate($request, News::$rules);
         // News Modelからデータを取得する
-        $user = News::find($request->id);
+        $user = User::find($request->id);
+        // id?で全ての情報を引っ張ってこれているのか？
         // 送信されてきたフォームデータを格納する
-        $_form = $request->all();
-        unset($news_form['_token']);
-  
+        $user_form = $request->all();
+        unset($user_form['_token']);
         // 該当するデータを上書きして保存する
-        $user->fill($news_form)->save();
+        $user->fill($user_form)->save();
+        //  return redirect('admin/news');
+        return redirect('user/show');
+}
+
   
-        return redirect('user');
-    }
+
+    // public function update(Request $request)
+    // {
+        
+    //     // Validationをかける
+    //     // $this->validate($request, Auth::$user);
+    //     // News Modelからデータを取得する
+    //     $user = Auth::find();
+    //     // 送信されてきたフォームデータを格納する
+    //     $user_form = $request->all();
+    //     unset($user_form['_token']);
+  
+    //     // 該当するデータを上書きして保存する
+    //     $user->fill($user_form)->save();
+  
+    //     return redirect('user/show');
+    // }
   
     // 以下を追記　　
     // public function delete(Request $request)

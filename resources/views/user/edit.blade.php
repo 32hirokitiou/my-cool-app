@@ -1,24 +1,20 @@
-<!DOCTYPE html>
+編集画面
+<p
+<p>名前 {{Auth::user()->name}} </p>
+<p>メールアドレス {{Auth::user()->email}} </p>
+
+名前を変更する
+
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>プロフィール編集画面</title>
-    </head>
-    <body>
-        <h1>
-        
-        {{Auth::user()->name}}
-        {{Auth::user()->email}}
-        <!-- {{$user->name}}
-        {{$user->email}}
-        {{$user->email}}
-        {{$user->email}}
-        {{$user->email}} -->
-        
-
-        </h1>
-    </body>
+<body>
+<form action="{{ action('UserController@update') }}" method="post">
+名前：<input type="text" value = "{{ $user_form->name }}" name='name'>
+メールアドレス：<input type="email"value = "{{ $user_form->email }}" name= 'email'>
+<input type="hidden" name="id" value="{{ $user_form->id }}">
+{{ csrf_field() }}
+<input type="submit" class="btn btn-primary" value="更新">
+</form>
+</body>
 </html>
+
+

@@ -14,6 +14,7 @@
         </h1>
     </body>
 
-<a href="{{ action('UserController@index') }}">編集</a> 
+<a href="{{ action('UserController@edit', ['id' => $user->id])}}">編集</a> 
+<!-- 下記教材のメモ16 投稿したニュースを更新/削除しよう -->
 
 </html>

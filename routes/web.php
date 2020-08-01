@@ -27,12 +27,14 @@ Route::get('/', function () { return redirect('/home'); });
 Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('user/show', 'UserController@show');
-    Route::post('user/show', 'UserController@update');
-    Route::post('user/index', 'UserController@index');
-    //あっているかわからない、  updateアクションがかけない
+    Route::get('user/show', 'UserController@index');
+    Route::get('user/edit', 'UserController@edit');
 
+    //あっているかわからない、  updateアクションがかけない
     Route::post('user/edit', 'UserController@edit');
-    Route::post('user/show', 'UserController@update');
+    Route::post('user/edit', 'UserController@update');
+    
+    Route::get('user/show', 'UserController@show');
     //追加分
     Route::get('mypage/index','MypageController@index');
     Route::get('mypage/edit','MypageController@edit');
