@@ -33,17 +33,14 @@ Route::group(['middleware' => 'auth:user'], function() {
     //あっているかわからない、  updateアクションがかけない
     Route::post('user/edit', 'UserController@edit');
     Route::post('user/edit', 'UserController@update');
-    
     Route::get('user/show', 'UserController@show');
     //追加分
-    Route::get('mypage/index','MypageController@index');
-    Route::get('mypage/edit','MypageController@edit');
+    // Route::get('mypage/index','MypageController@index');
+    // Route::get('mypage/edit','MypageController@edit');
     
-
-    // Route::get('/home', 'UserController@index')->name('home');
-    // Route::get('/mypage/{id}', 'MypageController@getUser')->name('mypage');
-    
-});
+    Route::get('myitems/add', 'MyitemsController@add')->name('myitems_add');
+    Route::post('myitems/add', 'MyitemsController@create')->name('myitems_create');
+    });
  
 /*
 |--------------------------------------------------------------------------
