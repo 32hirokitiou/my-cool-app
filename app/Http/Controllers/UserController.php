@@ -26,7 +26,8 @@ class UserController extends Controller{
         // Validationをかける
         //   $this->validate($request, News::$rules);
         // News Modelからデータを取得する
-        $user = User::find($request->id);
+        // $user = User::find($request->id);
+        $user = Auth::user(); 
         // id?で全ての情報を引っ張ってこれているのか？
         // 送信されてきたフォームデータを格納する
         $user_form = $request->all();

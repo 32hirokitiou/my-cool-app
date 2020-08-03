@@ -19,6 +19,8 @@ class User extends Authenticatable{
         'name',
         'email',
         'password',
+        'user_profile',
+        //'use_profile'が追加分
     ];
 
     /**

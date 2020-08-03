@@ -12,6 +12,7 @@
         <h1>
         <p>名前 {{Auth::user()->name}} </p>
         <p>メールアドレス {{Auth::user()->email}} </p>
+        <p>プロフィールコメント{{Auth::user()->user_profile}} </p>
         </h1>
     </body>
 

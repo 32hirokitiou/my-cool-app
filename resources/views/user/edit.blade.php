@@ -3,13 +3,13 @@
 <p>名前 {{Auth::user()->name}} </p>
 <p>メールアドレス {{Auth::user()->email}} </p>
 
-名前を変更する
 <html>
 <body>
 <form action="{{ action('UserController@update') }}" method="post">
-名前：<input type="text" value = "{{ $user_form->name }}" name='name'>
-メールアドレス：<input type="email"value = "{{ $user_form->email }}" name= 'email'>
-<input type="hidden" name="id" value="{{ $user_form->id }}">
+<p>名前：<input type="text" value = "{{ $user_form->name }}" name='name'></p>
+<p>メールアドレス：<input type="email"value = "{{ $user_form->email }}" name= 'email'></p>
+<p>プロフィールコメント：<input type="text" value = "{{ $user_form->user_profile }}" name='user_profile'></p>
+
 {{ csrf_field() }}
 <input type="submit" class="btn btn-primary" value="更新">
 </form>
