@@ -4,7 +4,6 @@
 <p>メールアドレス {{Auth::user()->email}} </p>
 
 名前を変更する
-
 <html>
 <body>
 <form action="{{ action('UserController@update') }}" method="post">

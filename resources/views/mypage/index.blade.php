@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>プロフィール画面</title>
+<title>マイアイテム編集画面</title>
+<p>マイアイテム編集画面です</P>
     </head>
     <body>
         <h1>
