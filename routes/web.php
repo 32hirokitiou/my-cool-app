@@ -45,7 +45,9 @@ Route::group(['middleware' => 'auth:user'], function() {
     });
     // コントローラーは複数形ではない？
     Route::get('/myitems/index', 'MyitemsController@index')->name('myitems_index');
- 
+    //ポスト画面
+    Route::get('post', 'PostsController@index');
+
 /*
 |--------------------------------------------------------------------------
 | 3) Admin 認証不要
