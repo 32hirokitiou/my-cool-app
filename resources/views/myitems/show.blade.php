@@ -10,14 +10,12 @@
     </head>
     <body>
         <h1>
-        <p>アイコン写真<p>
+        <p>アイコン写真</p>
         <p>プロフィール一言{{Auth::user()->user_profile}}</p>
         <p>名前 {{Auth::user()->name}} </p>
-        <p>メールアドレス {{Auth::user()->email}} </p>
         <p>プロフィールコメント{{Auth::user()->user_profile}} </p>
         <p>ここにアイテム一覧を記載するようにする</p>
         （データの紐付けと表示方法を調べる）  
-        </p>
         </h1>
     </body>
    
@@ -30,7 +28,7 @@
        <li></li>
     </ul>
     
-    <h1><a href="{{ action('MyitemsController@create', ['id' => $user->id])}}">過去の投稿写真を編集する</a></h1>
+    <h1><a href="{{ action('MyitemsController@create', ['id' => $user->id])}}">過去の投稿写真を追加・削除・編集する</a></h1>
     （削除も行えるようにする）
 
     <h2><a href="{{ action('MyitemsController@create', ['id' => $user->id])}}">新しく写真を投稿する</a></h2> 

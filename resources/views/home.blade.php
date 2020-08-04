@@ -1,26 +1,27 @@
-<!-- エラーメッセージ。なければ表示しない -->
-@if ($errors->any())
-<ul>
-    @foreach($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-</ul>
-@endif
+<?php
 
-<!-- フォーム -->
-<form action="{{ url('upload') }}" method="POST" enctype="multipart/form-data">
+namespace App\Http\Controllers;
 
-    <!-- アップロードした画像。なければ表示しない -->
-    @isset ($filename)
-    <div>
-        <img src="{{ asset('storage/' . $filename) }}">
-    </div>
-    @endisset
+use Illuminate\Http\Request;
 
-    <label for="photo">画像ファイル:</label>
-    <input type="file" class="form-control" name="file">
-    <br>
-    <hr>
-    {{ csrf_field() }}
-    <button class="btn btn-success"> Upload </button>
-</form>
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        return view('home');
+    }

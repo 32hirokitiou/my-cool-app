@@ -1,4 +1,6 @@
 画像（マイアイテム）アップロード画面
+
+authの確認
 <p>名前 {{Auth::user()->name}} </p>
 <p>メールアドレス {{Auth::user()->email}} </p>
 
@@ -16,6 +18,7 @@
 
     <!-- アップロードした画像。なければ表示しない -->
     @isset ($filename)
+    <!-- //変数がセットされているかを調べます。 これは変数が宣言されており、 NULL とは異なる値だということです。 -->
     <div>
         <img src="{{ asset('storage/' . $filename) }}">
     </div>
@@ -28,3 +31,5 @@
     {{ csrf_field() }}
     <button class="btn btn-success"> Upload </button>
 </form>
+
+
