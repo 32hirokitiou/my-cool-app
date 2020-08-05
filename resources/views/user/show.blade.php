@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{{-- user.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+@extends('layouts.myitems')
+@section('title', 'ニュースの新規作成')
 
-<title>マイページ</title>
-<p>マイページ画面です</P>
-    </head>
-    <body>
-        <h1>
-        <p>名前 {{Auth::user()->name}} </p>
-        <p>メールアドレス {{Auth::user()->email}} </p>
-        <p>プロフィールコメント{{Auth::user()->user_profile}} </p>
-        </h1>
-    </body>
+{{-- user.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>ここに一覧を表示するぞ！</h2>
+            </div>
+        </div>
+    </div>
 
-<a href="{{ action('UserController@edit', ['id' => $user->id])}}">編集</a> 
-<-- 下記教材のメモ16 投稿したニュースを更新/削除しよう -->
+@endsection
 
-<p><a href="{{ action('MyitemsController@show', ['id' => $user->id])}}">画像の一覧画面へ</a><p>
-これでマイアイテム一覧ページに飛ぶ
 
-
-
-</html>

@@ -11,15 +11,26 @@ class MyitemsController extends Controller
 {
     public function add()
     {
-        return view('myitems.add');
+        return view('myitems.show');
+        $user = Auth::user();
+      $title = $request->title;
+      if ($title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Post::where('title', $title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Post::all();
+      }
+      return view('myitems/show', ['image' => $image, 'title' => $title]);
     }
     
-    public function create(Request $request)
-    {
+    public function create(Request $request){
+    
         $myitems = new Myitems;
         $myitems->user_id = $request->user_id;
-        // $article->title = $request->title;
-        // $article->content = $request->content;
+        
+        // $post->title = $request->title;
+        // $post->content = $request->content;
         // post画面を追加したら該当項目を追加する
         $myitems->save();
         return redirect('/');
@@ -42,4 +53,19 @@ class MyitemsController extends Controller
         
     }
     
+    public function index(Request $request)
+  {
+      $user = Auth::user();
+      $title = $request->title;
+      if ($title != '') {
+          // 検索されたら検索結果を取得する
+          $posts = Post::where('title', $title)->get();
+      } else {
+          // それ以外はすべてのニュースを取得する
+          $posts = Post::all();
+          //検索機能が必要だったらこれだけ必要
+      }
+      return view('myitems/show', ['posts' => $posts, 'title' => $title]);
+  }
+    //検索機能が必要なかったらいらない
 }

@@ -1,4 +1,5 @@
 画像（マイアイテム）アップロード画面
+
 元々つくっていたもの
 <p>名前 {{Auth::user()->name}} </p>
 <p>メールアドレス {{Auth::user()->email}} </p>
@@ -17,7 +18,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>写真の新規作成</h2>
-                <form action="{{ action('PostsController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('PostsController@add') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -38,7 +39,7 @@
                         </div>
                     </div>
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
+                    <input type="submit" class="btn btn-primary" value="投稿する">
                 </form>
             </div>
         </div>

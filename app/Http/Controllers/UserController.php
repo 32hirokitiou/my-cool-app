@@ -24,7 +24,7 @@ class UserController extends Controller{
 
     public function update(Request $request){
         // Validationをかける
-        //   $this->validate($request, News::$rules);
+        //   $this->validate($request, News::$rulxes);
         // News Modelからデータを取得する
         // $user = User::find($request->id);
         $user = Auth::user(); 

@@ -1,24 +1,13 @@
-画像（マイアイテム）アップロード画面
+@extends('layouts.posts')
+@section('title', '新しく写真を投稿する')
 
-
-<p>名前 {{Auth::user()->name}} </p>
-<p>メールアドレス {{Auth::user()->email}} </p>
-
-
-<!-- エラーメッセージ。なければ表示しない -->
-@if ($errors->any())
-<ul>
-    @foreach($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-</ul>
-@endif
-
-<div class="container">
+@section('content')
+    <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>ニュース新規作成</h2>
-                <form action="{{ action('PostsController@create') }}" method="POST" enctype="multipart/form-data">
+                <h2>新しく写真を投稿する</h2>
+                <form action="{{ action('PostsController@create') }}" method="post" enctype="multipart/form-data">
+
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)
@@ -27,13 +16,13 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
+                        <label class="col-md-2">タイトル</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">画像</label>
+                        <label class="col-md-2">画像</label>
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
                         </div>
@@ -44,3 +33,4 @@
             </div>
         </div>
     </div>
+@endsection

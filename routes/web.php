@@ -28,35 +28,12 @@ Route::group(['middleware' => 'auth:user'], function() {
     // Route::get('/home', 'HomeController@index')->name('home');
     Route::get('home', function () { return redirect('user/show'); });
     Route::get('user/show', 'UserController@show');
-    Route::get('user/edit', 'UserController@edit');
 
-    //あっているかわからない、  updateアクションがかけない
-    Route::post('user/edit', 'UserController@edit');
-    Route::post('user/edit', 'UserController@update');
-    //追加分
-    // Route::get('mypage/index','MypageController@index');
-    // Route::get('mypage/edit','MypageController@edit');
-    Route::get('myitems/show', 'MyitemsController@show');
-    Route::get('myitems/add', 'MyitemsController@add')->name('myitems_add');
-    //新規作成画面の表示
-    Route::post('myitems/add', 'MyitemsController@create')->name('myitems_create');
-    //新規投稿後のデータを保存する
-    Route::post('myitems/add', 'MyitemsController@create')->name('myitems_create');
-
-        // コントローラーは複数形ではない？
-        Route::get('/myitems/index', 'MyitemsController@index')->name('myitems_index');
-        //ポスト画面
-
-        Route::post('posts/post', 'PostsController@create');
-        Route::get('posts/post', 'PostsController@add');
-
-        // Route::post('upload', 'PostsController@upload');
-        // Route::post('', 'PostsController@upload');
+    Route::get('posts/create', 'PostsController@add');
+    Route::post('posts/create', 'PostsController@create');
+ 
+   
     
-        
-        // Route::get('myitems/show','PostsController@add');
-        // Route::post('myitems/show','PostsController@create');
-        // Route::get('myitems','PostController@index'); // 追記
     });
 
 /*
