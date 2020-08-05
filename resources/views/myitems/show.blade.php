@@ -31,7 +31,7 @@
     <h1><a href="{{ action('MyitemsController@create', ['id' => $user->id])}}">過去の投稿写真を追加・削除・編集する</a></h1>
     （削除も行えるようにする）
 
-    <h2><a href="{{ action('MyitemsController@create', ['id' => $user->id])}}">新しく写真を投稿する</a></h2> 
+    <h2><a href="{{ action('PostsController@add', ['id' => $user->id])}}">新しく写真を投稿する</a></h2> 
     <土台リンクのみ作成このリンク写真投稿画面に修正する!-- 下記教材のメモ16 投稿したニュースを更新/削除しよう -->
-
+   
 </html>

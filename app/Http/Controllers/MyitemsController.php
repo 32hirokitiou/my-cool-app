@@ -37,6 +37,7 @@ class MyitemsController extends Controller
     public function show(Request $request) {
         $user = Auth::user();   #ログインユーザー情報を取得します。
         // $news = Auth::find($request->id);
+        
         return view('myitems/show', ['user' => $user]);
         
     }

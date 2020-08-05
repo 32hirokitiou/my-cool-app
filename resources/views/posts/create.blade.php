@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>ニュース新規作成</h2>
-                <form action="{{ action('PostsController@upload') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ action('PostsController@create') }}" method="POST" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>
                             @foreach($errors->all() as $e)

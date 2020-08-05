@@ -11,15 +11,17 @@ use Illuminate\Support\Facades\Auth;
 //ユーザー情報を受け渡ししている
 
 
+
+
 class PostsController extends Controller
 {
-    public function index()
+    public function add()
     {
         $user = Auth::user();
-        return view('myitems/posts/post');
+        return view('posts/post');
     }
 
-    public function upload(Request $request)
+    public function create(Request $request)
     {
         $this->validate($request, Post::$rules);
         $post = new Post;

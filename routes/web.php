@@ -42,16 +42,23 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::post('myitems/add', 'MyitemsController@create')->name('myitems_create');
     //新規投稿後のデータを保存する
     Route::post('myitems/add', 'MyitemsController@create')->name('myitems_create');
-    });
-    // コントローラーは複数形ではない？
-    Route::get('/myitems/index', 'MyitemsController@index')->name('myitems_index');
-    //ポスト画面
-    Route::get('/myitems/posts/post', 'PostsController@index');
-    Route::post('upload', 'PostsController@upload');
-    Route::post('', 'PostsController@upload');
 
+        // コントローラーは複数形ではない？
+        Route::get('/myitems/index', 'MyitemsController@index')->name('myitems_index');
+        //ポスト画面
+
+        Route::post('posts/post', 'PostsController@create');
+        Route::get('posts/post', 'PostsController@add');
+
+        // Route::post('upload', 'PostsController@upload');
+        // Route::post('', 'PostsController@upload');
     
-    //8/4
+        
+        // Route::get('myitems/show','PostsController@add');
+        // Route::post('myitems/show','PostsController@create');
+        // Route::get('myitems','PostController@index'); // 追記
+    });
+
 /*
 |--------------------------------------------------------------------------
 | 3) Admin 認証不要
