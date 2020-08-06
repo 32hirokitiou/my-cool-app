@@ -31,7 +31,10 @@ Route::group(['middleware' => 'auth:user'], function() {
 
     Route::get('posts/create', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
- 
+
+    Route::get('posts/create', 'PostsController@add');
+    Route::post('posts/create', 'PostsController@create');
+    Route::get('myitems/index', 'MyitemsController@index'); // 追記
    
     
     });

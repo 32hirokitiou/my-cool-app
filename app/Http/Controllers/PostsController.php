@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
 //ユーザー情報を受け渡ししている
-
-
 class PostsController extends Controller
 {
     
@@ -42,7 +40,7 @@ class PostsController extends Controller
 					unset($form['_token']);
 					// フォームから送信されてきたimageを削除する
 					unset($form['image']);
-					//これ消しちゃって良いのか？目的は写真データを保存したい
+					//これ消しちゃって良いのか？目的は写真データを保存したい→画像データ自体はストレージで保存
 					// データベースに保存する
 					$post->fill($form);
 					$post->save();
