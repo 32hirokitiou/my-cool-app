@@ -45,6 +45,12 @@
                                     <th>{{ $post->id }}</th>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
                                     <td> <img src="{{ asset('storage/image/'.$post->image)}}"> </td>
+                                    <td>
+                                        <div>
+                                            <a href="{{ action('MyitemsController@edit', ['id' => $post->id]) }}">編集</a>
+                                        </div>
+                                    </td>
+                                </tr>
                                 </tr>
                             @endforeach
                         </tbody>

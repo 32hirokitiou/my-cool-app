@@ -37,6 +37,10 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('myitems/index', 'MyitemsController@index'); // 追記
    
     
+    //16
+    Route::get('myitems/edit', 'MyitemsController@edit');
+    Route::post('myitems/edit', 'MyitemsController@update');
+
     });
 
 /*
