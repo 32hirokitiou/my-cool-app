@@ -17,7 +17,7 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="title">タイトル</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ $myitems_form->title }}">
+                            <input type="text" class="form-control" name="title" value="{{ $form->title }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -25,7 +25,7 @@
                         <div class="col-md-10">
                             <input type="file" class="form-control-file" name="image">
                             <div class="form-text text-info">
-                                設定中: {{ $myitems_form->image }}
+                                設定中: {{ $form->image }}
                             </div>
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -36,12 +36,26 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-10">
-                            <input type="hidden" name="id" value="{{ $myitems_form->id }}">
+                            <input type="hidden" name="id" value="{{ $form->id }}">
                             {{ csrf_field() }}
                             <input type="submit" class="btn btn-primary" value="更新">
                         </div>
                     </div>
                 </form>
+                {{-- 以下を追記　--}}
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($form->histories != NULL)
+                                @foreach ($form->histories as $history)
+                                    <li class="list-group-item">{{ $history->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

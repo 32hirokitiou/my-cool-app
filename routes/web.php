@@ -18,7 +18,7 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 Route::get('/', function () { return redirect('/home'); });
- 
+Route::get('/', 'ItemsController@index');
 /*
 |--------------------------------------------------------------------------
 | 2) User ログイン後
@@ -41,6 +41,10 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('myitems/edit', 'MyitemsController@edit');
     Route::post('myitems/edit', 'MyitemsController@update');
     Route::get('myitems/delete', 'MyitemsController@delete');
+
+    //8/7
+    // Route::get('myitems/edit', 'MyitemsController@update');
+
     });
 
 /*
@@ -52,6 +56,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/',         function () { return redirect('/admin/home'); });
     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login',    'Admin\LoginController@login');
+   
 });
  
 /*

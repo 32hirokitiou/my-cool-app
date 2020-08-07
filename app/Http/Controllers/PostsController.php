@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
 use App\Post;
+use App\History;
+use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +28,8 @@ class PostsController extends Controller
 					//  Post::$rulesの記述の意味も理解する
 					$post = new Post;
 					$form = $request->all();
-					//$formは画面から飛んできたパラメーターが格納されている配列
+					
+					// $formは画面から飛んできたパラメーターが格納されている配列
 					// フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
 					if (isset($form['image'])) {
 						$path = $request->file('image')->store('public/image');
@@ -45,6 +48,7 @@ class PostsController extends Controller
 					$post->fill($form);
 					$post->save();
 					// admin/news/createにリダイレクトする
+
 					return redirect('posts/create');
         }
 }
