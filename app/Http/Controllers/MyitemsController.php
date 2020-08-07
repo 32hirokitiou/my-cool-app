@@ -43,19 +43,34 @@ class MyitemsController extends Controller
       // News Modelからデータを取得する
       $post = Post::find($request->id);
       // 送信されてきたフォームデータを格納する
-      $myitems_form = $request->all();
-      if (isset($items_form['image'])){
+      $form = $request->all();
+      if (isset($form['image'])){
+        // isset — 変数が宣言されていること、そして NULL とは異なることを検査する
         $path = $request->file('image')->store('public/image');
         $post->image = basename($path);
-        unset($post_form['image']);
+        //ここがわからない
+        unset($form['image']);
+        // unset関数は、定義した変数の割当を削除する関数です。
+        //
       } elseif (isset($request->remove)) {
           $post->image =null;
-          unset($myitems_form['remove']);
+          unset($form['remove']);
+        //   unset関数は、定義した変数の割当を削除する関数です。
       } 
-      unset($myitems_form['_token']);
+      unset($form['_token']);
       // 該当するデータを上書きして保存する
-      $post->fill($myitems_form)->save();
-      return redirect('myitems/show');
+      $post->fill($form)->save();
+      return redirect('myitems/index');
   }
+
+  public function delete(Request $request)
+  {
+      // 該当するNews Modelを取得
+      $post = Post::find($request->id);
+      // 削除する
+      $post->delete();
+      return redirect('myitems/index/');
+  }  
+  
 }
 

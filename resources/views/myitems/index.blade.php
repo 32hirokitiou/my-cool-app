@@ -49,8 +49,10 @@
                                         <div>
                                             <a href="{{ action('MyitemsController@edit', ['id' => $post->id]) }}">編集</a>
                                         </div>
+                                        <div>
+                                            <a href="{{ action('MyitemsController@delete', ['id' => $post->id]) }}">削除</a>
+                                        </div>
                                     </td>
-                                </tr>
                                 </tr>
                             @endforeach
                         </tbody>

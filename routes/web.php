@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth:user'], function() {
     //16
     Route::get('myitems/edit', 'MyitemsController@edit');
     Route::post('myitems/edit', 'MyitemsController@update');
-
+    Route::get('myitems/delete', 'MyitemsController@delete');
     });
 
 /*
