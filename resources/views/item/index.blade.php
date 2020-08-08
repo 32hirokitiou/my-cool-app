@@ -10,7 +10,7 @@
                         <div class="col-md-6">
                             <div class="caption mx-auto">
                                 <div class="image">
-                                    @if ($headline->image_path)
+                                    @if ($headline->image)
                                         <img src="{{ asset('storage/image/' . $headline->image) }}">
                                     @endif
                                 </div>
@@ -18,9 +18,6 @@
                                     <h1>{{ str_limit($headline->title, 70) }}</h1>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <p class="body mx-auto">{{ str_limit($headline->body, 650) }}</p>
                         </div>
                     </div>
                 </div>
@@ -38,9 +35,6 @@
                                 </div>
                                 <div class="title">
                                     {{ str_limit($post->title, 150) }}
-                                </div>
-                                <div class="body mt-3">
-                                    {{ str_limit($post->body, 1500) }}
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">
