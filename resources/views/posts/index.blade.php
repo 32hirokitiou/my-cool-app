@@ -44,7 +44,7 @@
                                 <tr>
                                     <th>{{ $post->id }}</th>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
-                                    <td> <img src="{{ asset('storage/image/'.$post->image)}}"> </td>
+                                    <td> <img src="{{ asset('storage/image/'.$post->image_path)}}"> </td>
                                     <td>
                                         <div>
                                             <a href="{{ action('PostsController@edit', ['id' => $post->id]) }}">編集</a>

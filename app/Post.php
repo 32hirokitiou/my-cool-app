@@ -14,7 +14,7 @@ class Post extends Model
     protected $guarded = array('id');
     public static $rules = array(
         'title' => 'required',
-        'image' => 'required',
+        // 'image' => 'required',
     );
     // Postモデルに関連付けを行う
     public function histories()

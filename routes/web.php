@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth:user'], function() {
     // Route::get('/home', 'HomeController@index')->name('home');
     Route::get('home', function () { return redirect('user/show'); });
     Route::get('user/show', 'UserController@show');
+    Route::get('user/edit', 'UserController@edit');
+    Route::post('user/edit', 'UserController@update');
 
     Route::get('posts/create', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
@@ -41,6 +43,9 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('posts/edit', 'PostsController@edit');
     Route::post('posts/edit', 'PostsController@update');
     Route::get('posts/delete', 'PostsController@delete');
+
+    
+
 
     //8/7
     // Route::get('posts/edit', 'PostsController@update');

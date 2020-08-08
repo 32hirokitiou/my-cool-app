@@ -15,8 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image');
-            //教材でいうimage_pathを保存するカラム
+            $table->string('image_path');
             $table->string('title');
             $table->timestamps();
         });

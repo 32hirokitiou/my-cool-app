@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 use Illuminate\Foundation\Auth\User;
 use App\Post;
 use App\History;
@@ -36,9 +36,9 @@ class PostsController extends Controller
 						$path = $request->file('image')->store('public/image');
 						//DBにはファイルをそのまま保存しない
 						//ファイル名だけ保存している
-						$post->image = basename($path);
+						$post->image_path = basename($path);
 					} else {
-						$post->image = null;
+						$post->image_path = null;
 					}
 					// フォームから送信されてきた_tokenを削除する
 					unset($form['_token']);
@@ -63,7 +63,7 @@ class PostsController extends Controller
 			$title = $request->title;
 			if ($title != '') {
 				// 検索されたら検索結果を取得する
-				//　画像も表示したい
+				//画像も表示したい
 				$posts = Post::where('title', $title)->get();
 			} else {
 				// それ以外はすべてのニュースを取得する
@@ -93,11 +93,11 @@ class PostsController extends Controller
 			if (isset($form['image'])){
 				// isset — 変数が宣言されていること、そして NULL とは異なることを検査する
 				$path = $request->file('image')->store('public/image');
-				$post->image = basename($path);
+				$post->image_path = basename($path);
 				unset($form['image']);
 				// unset関数は、定義した変数の割当を削除する関数です。
 			} elseif (isset($request->remove)) {
-				$post->image =null;
+				$post->image_path =null;
 				unset($form['remove']);
 				//   unset関数は、定義した変数の割当を削除する関数です。
 			} 
