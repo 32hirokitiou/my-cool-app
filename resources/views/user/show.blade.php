@@ -1,5 +1,5 @@
 {{-- user.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@extends('layouts.myitems')
+@extends('layouts.posts')
 @section('title', 'ニュースの新規作成')
 
 {{-- user.blade.phpの@yield('content')に以下のタグを埋め込む --}}

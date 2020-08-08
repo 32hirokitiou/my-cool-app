@@ -34,16 +34,16 @@ Route::group(['middleware' => 'auth:user'], function() {
 
     Route::get('posts/create', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
-    Route::get('myitems/index', 'MyitemsController@index'); // 追記
+    Route::get('posts/index', 'PostsController@index'); // 追記
    
     
     //16
-    Route::get('myitems/edit', 'MyitemsController@edit');
-    Route::post('myitems/edit', 'MyitemsController@update');
-    Route::get('myitems/delete', 'MyitemsController@delete');
+    Route::get('posts/edit', 'PostsController@edit');
+    Route::post('posts/edit', 'PostsController@update');
+    Route::get('posts/delete', 'PostsController@delete');
 
     //8/7
-    // Route::get('myitems/edit', 'MyitemsController@update');
+    // Route::get('posts/edit', 'PostsController@update');
 
     });
 
