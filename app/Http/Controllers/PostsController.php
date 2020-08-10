@@ -140,4 +140,37 @@ class PostsController extends Controller
 			return redirect('posts/index/');
 		}  
 		
+
+		public function store(Request $request)
+		{
+			// $post = $request->validate([
+			// 	'title' => 'required|max:50',
+			// 	'body' => 'required|max:2000',
+			// ]);
+	
+			// #(ハッシュタグ)で始まる単語を取得。結果は、$matchに多次元配列で代入される。
+			//preg_match_allはパターンにマッチした場合は1を返し、マッチしなかったら0を返します。
+			preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->tags, $match);
+			// $match[0]に#(ハッシュタグ)あり、$match[1]に#(ハッシュタグ)なしの結果が入ってくるので、$match[1]で#(ハッシュタグ)なしの結果のみを使います。
+			$tags = [];
+			//空の配列を用意?なぜエラーなのか
+			foreach ($match[1] as $tag) {
+				$record = Tag::firstOrCreate(['name' => $tag]);// firstOrCreateメソッドで、tags_tableのnameカラムに該当のない$tagは新規登録される。
+				array_push($tags, $record);// $recordを配列に追加します(=$tags)
+				 //array_push()は配列の末尾に要素を追加する関数です。ex)$tagの末尾に$recordを追加している
+			};
+	
+			// 投稿に紐付けされるタグのidを配列化
+			$tags_id = [];
+			foreach ($tags as $tag) {
+				array_push($tags_id, $tag['id']);
+			};
+			$post->tags()->attach($tags_id);// 投稿ににタグ付するために、attachメソッドをつかい、モデルを結びつけている中間テーブルにレコードを挿入します。// 投稿はposts_tableへレコードしましょう。
+			$post = new Post;
+			$post->title = $request->title;
+			// $post->body = $request->body; bodyはないので必要ない。
+			$post->user_id = Auth::user()->id;
+			$post->save();
+			return redirect()->route('top');
 		}
+}

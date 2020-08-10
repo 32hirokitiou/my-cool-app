@@ -36,9 +36,9 @@ Route::group(['middleware' => 'auth:user'], function() {
 
     Route::get('posts/create', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
+    Route::post('posts/create', 'PostsController@store');//8/10  add tags
     Route::get('posts/index', 'PostsController@index'); // 追記
    
-    
     //16
     Route::get('posts/edit', 'PostsController@edit');
     Route::post('posts/edit', 'PostsController@update');
