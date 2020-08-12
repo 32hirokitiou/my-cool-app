@@ -32,20 +32,16 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::post('user/edit', 'UserController@update');
 
     Route::get('posts/create', 'PostsController@add');
-    Route::get('posts/create', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
     Route::get('posts/index', 'PostsController@index'); // 追記
-   
-    //16
     Route::get('posts/edit', 'PostsController@edit');
     Route::post('posts/edit', 'PostsController@update');
     Route::get('posts/delete', 'PostsController@delete');
+    Route::get('posts/show', 'PostsController@show');
+    // Route::get('posts/show/{id}', 'PostsController@show')->where('id', '[0-9]+');
+    // Route::get('/{id}', 'TasksController@show')->where('id', '[0-9]+');
+});
 
-
-    //8/7
-    // Route::get('posts/edit', 'PostsController@update');
-
-    });
 
 /*
 |--------------------------------------------------------------------------

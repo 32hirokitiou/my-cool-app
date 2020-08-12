@@ -18,10 +18,19 @@ class PostsController extends Controller {
  	public function add() {
 		return view('posts.create');
 	}
-      
+	  
+	public function show(Request $request) {
+		$user = User::all();
+		$posts = $user->load('posts');
+		return view('posts.show', ['posts'=>$posts->posts]);
+		
+	}
+
+
 	// 以下を追記
 	public function create(Request $request) {
 		$this->validate($request, Post::$rules);
+
 		//  varidateのアクションを理解する
 		//  Post::$rulesの記述の意味も理解する
 		$post = new Post;
@@ -42,12 +51,15 @@ class PostsController extends Controller {
 		unset($form['image']);
 		//これ消しちゃって良いのか？目的は写真データを保存したい→画像データ自体はストレージで保存
 		// データベースに保存する
+		// dd($form);
+
 		$post->fill($form);
+		$post->user_id = Auth::user()->id;
 		$post->save();
-		// admin/news/createにリダイレクトする
 		return redirect('posts/create');
 	}
-	public function index(Request $request){
+	
+	public function index(Request $request) {
 		$title = $request->title;
 		if ($title != '') {
 			// 検索されたら検索結果を取得する
@@ -56,9 +68,9 @@ class PostsController extends Controller {
 		} else {
 		// それ以外はすべてのニュースを取得する
 		$posts = Post::all();
-	}
+		}
 	return view('posts.index', ['posts' => $posts, 'title' => $title]);
-	}
+	}	
 
 	public function edit(Request $request) {
 		// News Modelからデータを取得する
@@ -87,9 +99,9 @@ class PostsController extends Controller {
 			//   unset関数は、定義した変数の割当を削除する関数です。
 		} 
 
-	unset($form['_token']);
+		unset($form['_token']);
 	// 該当するデータを上書きして保存する
-	$post->fill($form)->save();
+		$post->fill($form)->save();
 
 
 	//   教材のコード17
@@ -110,11 +122,11 @@ class PostsController extends Controller {
 	//  $post->fill($form)->save();
 
 	// 以下を追記
-	$history = new History;
-	$history->post_id = $post->id;
-	$history->edited_at = Carbon::now();
-	$history->save();
-	return redirect('posts/index/');
+		$history = new History;
+		$history->post_id = $post->id;
+		$history->edited_at = Carbon::now();
+		$history->save();
+		return redirect('posts/index/');
 	}
 
 	public function delete(Request $request) {

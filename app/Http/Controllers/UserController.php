@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,13 @@ class UserController extends Controller{
 
     public function show(Request $request) {
         $user = Auth::user();   #ログインユーザー情報を取得します。
-        return view('user/show', ['user' => $user]);
+        
+        
+
+        // $items = User::has('message')->get();
+        // return view('user.index', ['items' => $items]);
+
+        // return view('user/show', ['user' => $user]);
     }
 
 

@@ -22,6 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('comment')->default('宜しくお願いします。')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            
+
         });
     }
 

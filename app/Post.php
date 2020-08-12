@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Post extends Model
 {
@@ -34,5 +35,11 @@ class Post extends Model
       return $this->hasMany('App\PostTag');
         // ->using('App\PostTag');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     
 }

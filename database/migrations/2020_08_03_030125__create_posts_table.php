@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('image_path');
             $table->string('title');
             $table->timestamps();
+            $table->unsignedBiginteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

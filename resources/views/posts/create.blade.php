@@ -1,6 +1,5 @@
 @extends('layouts.posts')
 @section('title', '新しく写真を投稿する')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -34,3 +33,4 @@
         </div>
     </div>
 @endsection
+
