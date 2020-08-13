@@ -1,6 +1,7 @@
 @extends('layouts.posts')
 @section('title', '新しく写真を投稿する')
 @section('content')
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
@@ -14,7 +15,7 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-100">タイトル</label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>

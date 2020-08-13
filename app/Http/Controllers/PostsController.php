@@ -20,10 +20,8 @@ class PostsController extends Controller {
 	}
 	  
 	public function show(Request $request) {
-		$user = User::all();
-		$posts = $user->load('posts');
-		return view('posts.show', ['posts'=>$posts->posts]);
-		
+		$posts = Auth::user()->posts;
+		return view('posts.show', ['posts' => $posts]);
 	}
 
 
@@ -55,8 +53,9 @@ class PostsController extends Controller {
 
 		$post->fill($form);
 		$post->user_id = Auth::user()->id;
+		//postとidを紐付けていてidが保存されておらずエラーが出たため追加
 		$post->save();
-		return redirect('posts/create');
+		return redirect('posts/index');
 	}
 	
 	public function index(Request $request) {

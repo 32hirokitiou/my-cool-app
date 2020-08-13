@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
-
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +18,7 @@ class UserController extends Controller{
         // $items = User::has('message')->get();
         // return view('user.index', ['items' => $items]);
 
-        // return view('user/show', ['user' => $user]);
+         return view('user/show', ['user' => $user]);
     }
 
 

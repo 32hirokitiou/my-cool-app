@@ -17,8 +17,8 @@ Auth::routes();
 | 1) User 認証不要
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () { return redirect('/home'); });
-Route::get('/', 'ItemsController@index');
+Route::get('/', function () { return redirect('/register'); });
+Route::get('home', 'ItemsController@index');
 /*
 |--------------------------------------------------------------------------
 | 2) User ログイン後
