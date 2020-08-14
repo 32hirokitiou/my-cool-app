@@ -15,15 +15,36 @@ use Illuminate\Support\Facades\Auth;
 //ユーザー情報を受け渡ししている
 class PostsController extends Controller {
     
- 	public function add() {
-		return view('posts.create');
-	}
-	  
 	public function show(Request $request) {
 		$posts = Auth::user()->posts;
 		return view('posts.show', ['posts' => $posts]);
 	}
 
+
+	public function showDetail($id) {
+		$post = Post::find($id);
+
+		if (is_null($post)) {
+			\Session::flash('err_msg','データがありません。');
+			return redirect('posts/show');
+		}
+		return view('posts.showdetail', ['post' => $post]);
+	}
+	
+	//テスト用
+	public function test(Request $request) {
+		$title = $request->title;
+		if ($title != '') {
+			// 検索されたら検索結果を取得する
+			//画像も表示したい
+			$posts = Post::where('title', $title)->get();
+		} else {
+		// それ以外はすべてのニュースを取得する
+		$posts = Post::all();
+		}
+		$user = User::all();
+	return view('posts.test', ['posts' => $posts, 'title' => $title, 'user' => $user] );
+	}	
 
 	// 以下を追記
 	public function create(Request $request) {
@@ -50,7 +71,6 @@ class PostsController extends Controller {
 		//これ消しちゃって良いのか？目的は写真データを保存したい→画像データ自体はストレージで保存
 		// データベースに保存する
 		// dd($form);
-
 		$post->fill($form);
 		$post->user_id = Auth::user()->id;
 		//postとidを紐付けていてidが保存されておらずエラーが出たため追加
@@ -79,8 +99,7 @@ class PostsController extends Controller {
 		}
 	return view('posts.edit', ['form' => $post]);
 	}
-
-
+	
 	public function update(Request $request) {
 		$this->validate($request, Post::$rules);
 		$post = Post::find($request->id);
@@ -101,24 +120,6 @@ class PostsController extends Controller {
 		unset($form['_token']);
 	// 該当するデータを上書きして保存する
 		$post->fill($form)->save();
-
-
-	//   教材のコード17
-	// if ($request->remove == 'true') {
-	//     $form['image'] = null;
-	//     //if remove だったら image をnullにする
-	// } elseif ($request->file('image')) {
-	//     // if fileにimageが入っていたら
-	//     $path = $request->file('image')->store('public/image');
-	//     $form['image'] = basename($path);
-	//     //$path にデータを保存する
-	// } else {
-	//     $form['image'] = $post->image;
-	// }
-	//  unset($form['_token']);
-	//  unset($form['image']);
-	//  unset($form['remove']);
-	//  $post->fill($form)->save();
 
 	// 以下を追記
 		$history = new History;

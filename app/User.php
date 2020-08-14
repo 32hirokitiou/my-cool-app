@@ -21,7 +21,9 @@ class User extends Authenticatable{
         'email',
         'password',
         'comment',
-        //'use_profile'が追加分
+        'image_path',
+        //'comment'が追加分
+        //'image_path'が追加分
     ];
 
     /**
@@ -46,4 +48,58 @@ class User extends Authenticatable{
     {
         return $this->hasMany('App\Post');
     }
+
+
+    //以下いいね機能にて追加したもの
+    
+    public function favorites()
+    {
+        return $this->belongsToMany(Post::class, 'favorites', 'user_id', 'post_id')->withTimestamps();
+        //favorites関数に戻す Postに対して複数属している
+        //ここのfavoritesが謎
+        //普通の書き方じゃなダメなのか return $this->belongsToMany('App\Post');
+        //もし中間テーブルのcreated_at、updated_atタイムスタンプを自動的に保守したい場合は、withTimestampsメソッドをリレーション定義に付けてください。
+        //
+    }
+
+    public function favorite($postId)
+    //いいねをつける関数
+
+    {
+        $exist = $this->is_favorite($postId);
+        ///既にいいねをしているかの確認
+        if($exist){
+            //ここのif文が理解できない
+            //入っていたらfalseを返す
+            return false;
+        }else{
+            $this->favorites()->attach($postId);
+            //モデルを結びつけている中間テーブルにレコードを挿入することにより、ユーザーに役割を持たせるにはattachメソッドを使います。
+            return true;
+        }
+    }
+
+    public function unfavorite($postId)
+    //いいねを外す関数
+    {
+        $exist = $this->is_favorite($postId);
+
+        if($exist){
+            $this->favorites()->detach($postId);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function is_favorite($postId)
+    {
+        return $this->favorites()->where('post_id',$postId)->exists();
+        //is_favoritesの中にfavorite()の
+        //既にfavしているかどうかの判断する関数
+        //戻り値 bool true or false
+    }
+
+    //いいね追加分
 }
+

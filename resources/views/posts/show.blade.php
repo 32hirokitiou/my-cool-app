@@ -34,7 +34,6 @@
                                 <th width="10%">ID</th>
                                 <th width="20%">タイトル</th>
                                 <th width="50%">投稿写真</th>
-                                
                             </tr>
                         </thead>
                         <tbody>
@@ -42,7 +41,7 @@
                                 <tr>
                                     <th>{{ $post->id }}</th>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
-                                    <td> <img src="{{ asset('storage/image/'.$post->image_path)}}"> </td>
+                                    <td><a href="/posts/{{ $post->id }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"> </td>
                                     <td>
                                         <div>
                                             <a href="{{ action('PostsController@edit', ['id' => $post->id]) }}">編集</a>
@@ -50,6 +49,7 @@
                                         <div>
                                             <a href="{{ action('PostsController@delete', ['id' => $post->id]) }}">削除</a>
                                         </div>
+                                        
                                     </td>
                                 </tr>
                             @endforeach

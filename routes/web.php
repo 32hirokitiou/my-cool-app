@@ -31,6 +31,11 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('user/edit', 'UserController@edit');
     Route::post('user/edit', 'UserController@update');
 
+    //ユーザー画像の追加分
+    Route::get('/user', 'UserController@index')->name('user.index');
+    Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit');
+    Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate');
+    //ユーザー画像の追加分
     Route::get('posts/create', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
     Route::get('posts/index', 'PostsController@index'); // 追記
@@ -38,8 +43,24 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::post('posts/edit', 'PostsController@update');
     Route::get('posts/delete', 'PostsController@delete');
     Route::get('posts/show', 'PostsController@show');
-    // Route::get('posts/show/{id}', 'PostsController@show')->where('id', '[0-9]+');
-    // Route::get('/{id}', 'TasksController@show')->where('id', '[0-9]+');
+
+    Route::group(['prefix'=>'posts/{id}'],function(){
+        Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
+        Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
+     });
+
+    Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
+    Route::get('/', function () {
+        return view('welcome', ['posts' => App\Post::all(), 'tags' => App\Tag::all()]);
+    });
+
+    Route::post('/', function () {
+        $post = new App\Post();
+        $post->title = request()->title;
+        $post->save();
+        $post->tags()->attach(request()->tags);
+        return redirect('/');
+        });
 });
 
 
@@ -63,4 +84,5 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+
 });

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!--追加-->
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -44,10 +47,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login') }}</a>
                             </li>
-                            <!-- @if (Route::has('register'))
+                            @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li> -->
+                                </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">

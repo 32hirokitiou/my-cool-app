@@ -2,28 +2,13 @@
 @section('title', '登録済みニュースの一覧')
 
 @section('content')
-
-@if (Auth::id() != $user->id)
-ここで自分ではないかどうかのif文
-
-    @if (Auth::user()->is_favorite($post->id))
-    ここで既にいいねをしていたら（何かしらのデータがでてきたら）
-        {!! Form::open(['route' => ['favorites.unfavorite', $post->id], 'method' => 'delete']) !!}
-        フォーム作成して、ここの第一引数謎 postのIDと照合して 削除
-            {!! Form::submit('いいね！を外す', ['class' => "button btn btn-warning"]) !!}
-            submitボタンの生成
-            第一引数のデフォルト値：現在のURI
-            第二引数のデフォルト値：POST
-        {!! Form::close() !!}
-    @else
-        {!! Form::open(['route' => ['favorites.favorite', $post->$id]]) !!}
-            {!! Form::submit('いいね！を付ける', ['class' => "button btn btn-success"]) !!}
-        {!! Form::close() !!}
-    @endif
-@endif
     <div class="container">
         <div class="row">
-            <h2>マイページ投稿一覧</h2>
+            <h2>{{ $post->title }}</h2>
+            @if (session('err_msg')) 
+			         <p> {{ session('err_msg') }}
+               </p>
+            @endif
         </div>
         <div class="row">
             <div class="col-md-4 mx-auto">
@@ -53,29 +38,24 @@
                                 <th width="10%">ID</th>
                                 <th width="20%">タイトル</th>
                                 <th width="50%">投稿写真</th>
-                                <th width="10%">favorite</th>
                                 
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $post)
+                            
                                 <tr>
                                     <th>{{ $post->id }}</th>
                                     <td>{{ \Str::limit($post->title, 100) }}</td>
-                                    <td> <img src="{{ asset('storage/image/'.$post->image_path)}}"> </td>
-                                    <td>
-                                        <div>
+                                    <td><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"> </td>
+                                    <div>
                                             <a href="{{ action('PostsController@edit', ['id' => $post->id]) }}">編集</a>
                                         </div>
                                         <div>
                                             <a href="{{ action('PostsController@delete', ['id' => $post->id]) }}">削除</a>
                                         </div>
                                     </td>
-                                    <td>favoriteボタンを配置
-
-                                    </td>
                                 </tr>
-                            @endforeach
+                      
                         </tbody>
                     </table>
                 </div>
