@@ -26,11 +26,22 @@
                             <input type="file" class="form-control-file" name="image">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-md-2">
+                            @foreach ($tags as $tag)
+                                <input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}
+                            @endforeach
+                        </label>
+                        <div class="col-md-10">
+                        
+                        </div>
+                    </div>
 
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
+                    <input type="submit" class="btn btn-primary" value="投稿する"><body></body>             
                 </form>
             </div>
         </div>
     </div>
 @endsection
+

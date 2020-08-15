@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
 use App\Post;
 use App\History;
+use App\Tag;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Validator;
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Auth;
 //ユーザー情報を受け渡ししている
 class PostsController extends Controller {
 	public function add() {
-		return view('posts.create');
+		$tags = Tag::all();
+		return view('posts.create', ['tags' => $tags]);
 	}
-	
+
 	public function show(Request $request) {
 		$posts = Auth::user()->posts;
 		return view('posts.show', ['posts' => $posts]);
@@ -53,6 +55,7 @@ class PostsController extends Controller {
 		//  Post::$rulesの記述の意味も理解する
 		$post = new Post;
 		$form = $request->all();
+		
 		// $formは画面から飛んできたパラメーターが格納されている配列
 		// フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
 		if (isset($form['image'])) {
@@ -72,11 +75,15 @@ class PostsController extends Controller {
 		// dd($form);
 		$post->fill($form);
 		$post->user_id = Auth::user()->id;
-		
 		//postとidを紐付けていてidが保存されておらずエラーが出たため追加
+		//ここで投稿したpostはログイン中のユーザーのものと紐づけられている
 		$post->save();
-		//タグ追加分
-		// $post->tags()->attach(request()->tags);
+
+		//下記タグに追加に際してこれで保存できる？
+		//投稿したタグに紐づけてたタグも保存する。
+		$post->tags()->attach($request->tags);
+		//ルーティングでのメソッドと重複していそう？
+
 		return redirect('posts/index');
 	}
 	

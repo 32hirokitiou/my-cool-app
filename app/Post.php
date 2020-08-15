@@ -12,11 +12,14 @@ class Post extends Model
     // ];
 
     // 以下を教材から追加
-    protected $guarded = array('id');
-    public static $rules = array(
+    protected $guarded = ['id', 'tags'];
+
+
+
+    public static $rules = [
         'title' => 'required',
         // 'image_path' => 'required',
-    );
+    ];
 
     // Postモデルに関連付けを行う
     public function histories()
