@@ -1,10 +1,3 @@
-画像（マイアイテム）アップロード画面
-
-元々つくっていたもの
-<p>名前 {{Auth::user()->name}} </p>
-<p>メールアドレス {{Auth::user()->email}} </p>
-
-
 <!-- エラーメッセージ。なければ表示しない -->
 @if ($errors->any())
 <ul>
@@ -27,7 +20,15 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
+                        <label class="col-md-2" for="title"><form method="post">
+        {{ csrf_field() }}
+        @foreach ($tags as $tag)
+            <input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}
+        @endforeach
+        <input name="body">
+        <button>投稿</button>
+    </form>
+    </label>
                         <div class="col-md-10">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                         </div>

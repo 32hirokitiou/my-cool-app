@@ -12,6 +12,7 @@ class PostTableSeeder extends Seeder
     public function run()
     {
         $post = new \App\Post([
+        'user_id' => '1',
         'image_path' => 'PHP1',
         'title' => 'aaa',
         ]);
@@ -19,9 +20,16 @@ class PostTableSeeder extends Seeder
           
         // 2レコード
         $post = new \App\Post([
+        'user_id' => '2',
         'image_path' => 'PHP2',
         'title' => 'iii',
         ]);
+
+        $post = new \App\Post([
+            'user_id' => '3',
+            'image_path' => 'PHP3',
+            'title' => 'uuu',
+            ]);
         $post->save();
         //
     }

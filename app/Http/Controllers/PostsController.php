@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Foundation\Auth\User;
 use App\Post;
 use App\History;
@@ -14,13 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 //ユーザー情報を受け渡ししている
 class PostsController extends Controller {
-    
+	public function add() {
+		return view('posts.create');
+	}
+	
 	public function show(Request $request) {
 		$posts = Auth::user()->posts;
 		return view('posts.show', ['posts' => $posts]);
 	}
-
-
 	public function showDetail($id) {
 		$post = Post::find($id);
 
@@ -49,7 +49,6 @@ class PostsController extends Controller {
 	// 以下を追記
 	public function create(Request $request) {
 		$this->validate($request, Post::$rules);
-
 		//  varidateのアクションを理解する
 		//  Post::$rulesの記述の意味も理解する
 		$post = new Post;
@@ -73,8 +72,11 @@ class PostsController extends Controller {
 		// dd($form);
 		$post->fill($form);
 		$post->user_id = Auth::user()->id;
+		
 		//postとidを紐付けていてidが保存されておらずエラーが出たため追加
 		$post->save();
+		//タグ追加分
+		// $post->tags()->attach(request()->tags);
 		return redirect('posts/index');
 	}
 	
@@ -84,11 +86,11 @@ class PostsController extends Controller {
 			// 検索されたら検索結果を取得する
 			//画像も表示したい
 			$posts = Post::where('title', $title)->get();
-		} else {
+			} else {
 		// それ以外はすべてのニュースを取得する
 		$posts = Post::all();
 		}
-	return view('posts.index', ['posts' => $posts, 'title' => $title]);
+		return view('posts.index', ['posts' => $posts, 'title' => $title]);
 	}	
 
 	public function edit(Request $request) {

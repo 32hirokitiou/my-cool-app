@@ -30,13 +30,15 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('user/show', 'UserController@show');
     Route::get('user/edit', 'UserController@edit');
     Route::post('user/edit', 'UserController@update');
-
+    
     //ユーザー画像の追加分
     Route::get('/user', 'UserController@index')->name('user.index');
     Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit');
     Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate');
     //ユーザー画像の追加分
-    Route::get('posts/create', 'PostsController@add');
+
+    // Route::get('posts/create', 'PostsController@add');
+    Route::get('posts/add', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
     Route::get('posts/index', 'PostsController@index'); // 追記
     Route::get('posts/edit', 'PostsController@edit');
@@ -44,12 +46,12 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('posts/delete', 'PostsController@delete');
     Route::get('posts/show', 'PostsController@show');
 
-    Route::group(['prefix'=>'posts/{id}'],function(){
-        Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
-        Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
-     });
-
-    Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
+    // Route::group(['prefix'=>'posts/{id}'],function(){
+    //     Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
+    //     Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
+    //  });
+    // Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
+    //チェックボックス①
     Route::get('/', function () {
         return view('welcome', ['posts' => App\Post::all(), 'tags' => App\Tag::all()]);
     });
@@ -61,7 +63,28 @@ Route::group(['middleware' => 'auth:user'], function() {
         $post->tags()->attach(request()->tags);
         return redirect('/');
         });
+    //チェックボックス①
+
+    //チェックボックス②
+    Route::get('posts/create', function () {
+        return view('posts/create', ['posts' => App\Post::all(), 'tags' => App\Tag::all()]);
+    });
+
+    //下の方いらないかもしれない
+    // Route::post('posts/create', function () {
+    //     $post = new App\Post();
+    //     $post->title = request()->title;
+    //     //titleではない？
+    //     $post->save();
+    //     $post->tags()->attach(request()->tags);
+    //     return redirect('posts/show');
+    //     });
+    //チェックボックス②
+
 });
+
+
+
 
 
 /*

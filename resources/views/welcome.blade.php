@@ -16,7 +16,7 @@
     @foreach ($posts as $post)
         <hr>
         <p>Tags: @foreach ($post->tags as $tag) {{ $tag->name }} @endforeach </p>
-        <p>{{ $post->body }}</p>
+        <p>{{ $post->title }}</p>
     @endforeach
 </body>
 </html>
