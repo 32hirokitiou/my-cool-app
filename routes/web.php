@@ -1,5 +1,5 @@
 <?php
- 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,23 +10,27 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
- 
+
 Auth::routes();
 /*
 |--------------------------------------------------------------------------
 | 1) User 認証不要
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () { return redirect('/register'); });
+Route::get('/', function () {
+    return redirect('/register');
+});
 Route::get('home', 'ItemsController@index');
 /*
 |--------------------------------------------------------------------------
 | 2) User ログイン後
 |--------------------------------------------------------------------------
 */
-Route::group(['middleware' => 'auth:user'], function() {
+Route::group(['middleware' => 'auth:user'], function () {
     // Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('home', function () { return redirect('user/show'); });
+    Route::get('home', function () {
+        return redirect('user/show');
+    });
     Route::get('user/show', 'UserController@show');
     Route::get('user/edit', 'UserController@edit');
     Route::post('user/edit', 'UserController@update');
@@ -36,7 +40,6 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit');
     Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate');
     //ユーザー画像の追加分
-
     Route::get('posts/add', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
     Route::get('posts/index', 'PostsController@index'); // 追記
@@ -46,16 +49,17 @@ Route::group(['middleware' => 'auth:user'], function() {
     Route::get('posts/show', 'PostsController@show');
 
     //facvariteの確認
-    // Route::group(['prefix'=>'posts/{id}'],function(){
-    //     Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
-    //     Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
-    //  });
+    Route::group(['prefix' => 'posts/{id}'], function () {
+        Route::post('favorite', 'FavoriteController@store')->name('favorites.favorite');
+        Route::delete('unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
+    });
 
     //詳細表示画面
     Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
+    // Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
 
-    
-    //チェックボックス①
+
+    //チェックボックステスト用
     Route::get('/', function () {
         return view('welcome', ['posts' => App\Post::all(), 'tags' => App\Tag::all()]);
     });
@@ -66,17 +70,8 @@ Route::group(['middleware' => 'auth:user'], function() {
         $post->save();
         $post->tags()->attach(request()->tags);
         return redirect('/');
-        });
-    //チェックボックス①
-
-
-    //チェックボックス②createの方で実装できる？
-    Route::get('posts/add', function () {
-        return view('posts/create', ['posts' => App\Post::all(), 'tags' => App\Tag::all()]);
     });
-
-
-    // チェックボックス②
+    //チェックボックステスト用
 
 });
 
@@ -89,20 +84,20 @@ Route::group(['middleware' => 'auth:user'], function() {
 | 3) Admin 認証不要
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/',         function () { return redirect('/admin/home'); });
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/',         function () {
+        return redirect('/admin/home');
+    });
     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login',    'Admin\LoginController@login');
-   
 });
- 
+
 /*
 |--------------------------------------------------------------------------
 | 4) Admin ログイン後
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
-
 });

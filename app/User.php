@@ -8,7 +8,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class User extends Authenticatable{
+class User extends Authenticatable
+{
     // use Notifiable;
 
     /**
@@ -51,7 +52,7 @@ class User extends Authenticatable{
 
 
     //以下いいね機能にて追加したもの
-    
+
     public function favorites()
     {
         return $this->belongsToMany(Post::class, 'favorites', 'user_id', 'post_id')->withTimestamps();
@@ -64,15 +65,14 @@ class User extends Authenticatable{
 
     public function favorite($postId)
     //いいねをつける関数
-
     {
         $exist = $this->is_favorite($postId);
         ///既にいいねをしているかの確認
-        if($exist){
+        if ($exist) {
             //ここのif文が理解できない
             //入っていたらfalseを返す
             return false;
-        }else{
+        } else {
             $this->favorites()->attach($postId);
             //モデルを結びつけている中間テーブルにレコードを挿入することにより、ユーザーに役割を持たせるにはattachメソッドを使います。
             return true;
@@ -84,17 +84,17 @@ class User extends Authenticatable{
     {
         $exist = $this->is_favorite($postId);
 
-        if($exist){
+        if ($exist) {
             $this->favorites()->detach($postId);
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
     public function is_favorite($postId)
     {
-        return $this->favorites()->where('post_id',$postId)->exists();
+        return $this->favorites()->where('post_id', $postId)->exists();
         //is_favoritesの中にfavorite()の
         //既にfavしているかどうかの判断する関数
         //戻り値 bool true or false
@@ -102,4 +102,3 @@ class User extends Authenticatable{
 
     //いいね追加分
 }
-
