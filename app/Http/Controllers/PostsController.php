@@ -105,9 +105,8 @@ class PostsController extends Controller
 			$posts = Post::all();
 		}
 
-		$auth_user = Auth::user();
 
-		return view('posts.index', ['posts' => $posts, 'title' => $title, 'auth_user' => $auth_user,]);
+		return view('posts.index', ['posts' => $posts, 'title' => $title,]);
 	}
 
 	public function edit(Request $request)
@@ -141,6 +140,8 @@ class PostsController extends Controller
 		unset($form['_token']);
 		// 該当するデータを上書きして保存する
 		$post->fill($form)->save();
+
+		$post->tags()->sync($request->tags);
 		// これで全て保存する。リレーションのあるものも全て保存されるのか。tagはきていないみたい
 		// 以下を追記
 		$history = new History;

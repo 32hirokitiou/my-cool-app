@@ -35,23 +35,23 @@
                     </div>
                 </div>
 
+                @php
+
+
+                @endphp
 
                 <div class="form-group row">
                     <label class="col-md-2" for="tags">
 
-
-                        @foreach($tags as $tag)
-                        @foreach($form->tags as $index => $selected_tag)
-
-                        @if($tag == $selected_tag)
-                        <input type="checkbox" name="tags[]" value="{{ $selected_tag }}" checked="checked">{{ $selected_tag }}
+                        @foreach ($tags as $tag)
+                        @if ($form->tags->search(function($selectedTag, $key) use ($tag) {
+                        return $selectedTag->id == $tag->id;
+                        }) !== false)
+                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" checked>{{ $tag->name }}
                         @else
-                        <input type="checkbox" name="tags[]" value="{{ $tag->name }}">{{ $tag->name }}
+                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}
                         @endif
                         @endforeach
-
-                        @endforeach
-
 
                     </label>
 
