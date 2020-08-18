@@ -1,22 +1,76 @@
-{{-- user.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@extends('layouts.user')
-@section('title', 'ニュースの新規作成')
-
-{{-- user.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+@extends('layouts.app')
+@section('title','ユーザー情報')
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>このページはユーザープロフィールを表示する</h2>
-                <p>名前 {{Auth::user()->name}} </p>
-                <p>メールアドレス {{Auth::user()->email}} </p>
-                <p>一言 {{Auth::user()->comment}} </p>
-                <p><a href="{{ action('UserController@edit') }}">プロフィールを編集する</a> </p>
-                <p><a href="{{ action('PostsController@index') }}">写真の一覧画面へ</a> </p>
-            </div>
-        </div>
-    </div>
+@if ($user->id == $post->user->id )
 
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ID(削除予定)</th>
+                <th>名前</th>
+                <th>メールアドレス</th>
+                <th>一言コメント</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div>
+                        @if(!empty($post->user->image_path))
+                        <img src="{{ asset('storage/user/'.$post->user->image_path)}}" class="thumbnail">
+                        @else
+                        画像なし
+                        @endif
+                    </div>
+                </td>
+                <td>{{ $post->user->id }}</td>
+                <td>{{ $post->user->name }}</td>
+                <td>{{ $post->user->email }}</td>
+                <td>{{ $post->user->comment }}</td>
+                <td><a href="{{ route('user.userEdit') }}" class="btn btn-primary btn-sm">編集</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@else
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ID(削除予定)</th>
+                <th>名前</th>
+                <th>一言コメント</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div>
+                        @if(!empty($post->user->image_path))
+                        <img src="{{ asset('storage/user/'.$post->user->image_path)}}" class="thumbnail">
+                        @else
+                        画像なし
+                        @endif
+                    </div>
+                </td>
+                <td>{{ $post->user->id }}</td>
+                <td>{{ $post->user->name }}</td>
+                <td>{{ $post->user->comment }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+@endif
 @endsection
-
-

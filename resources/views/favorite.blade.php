@@ -4,11 +4,11 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h2>投稿一覧</h2>
+        <h2>お気に入り一覧</h2>
     </div>
     <div class="row">
         <div class="col-md-4 mx-auto">
-            <a href="{{ action('PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
+            <a href="{{ action('PostsController@add') }}" role="button" class="btn btn-primary">新規作成は削除します</a>
         </div>
         <div class="col-md-8 mx-auto">
             <form action="{{ action('PostsController@index') }}" method="get">
@@ -41,6 +41,7 @@
                 </thead>
                 <tbody>
                     @foreach($posts as $post)
+                    @if ($auth_user->is_favorite($post->id))
                     <tr>
                         <th>{{ $post->id }}</th>
                         <td>{{ \Str::limit($post->title, 100) }}</td>
@@ -52,7 +53,6 @@
                             <div>
                                 <a href="{{ action('PostsController@delete', ['id' => $post->id]) }}">削除</a>
                             </div>
-                        <td><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post"></td>
                         </td>
                         <td>
 
@@ -69,7 +69,7 @@
                             {!! Form::close() !!}
                             @endif
                             @endif
-
+                            @endif
                         </td>
 
                     </tr>

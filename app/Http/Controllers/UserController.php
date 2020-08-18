@@ -18,8 +18,15 @@ class UserController extends Controller
 {
     public function show(Request $request)
     {
-        $user = Auth::user();   #ログインユーザー情報を取得します。
-        return view('user/show', ['user' => $user]);
+        $post = Post::find($request->id);
+        if (empty($post)) {
+            abort(404);
+        }
+        //ここでクリックした写真の情報をuser/showに渡したい
+        //
+        $user = Auth::user();
+
+        return view('user.show', ['post' => $post, 'user' => $user,]);
     }
 
     public function edit(Request $request)

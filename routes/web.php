@@ -29,11 +29,14 @@ Route::get('home', 'ItemsController@index');
 Route::group(['middleware' => 'auth:user'], function () {
     // Route::get('/home', 'HomeController@index')->name('home');
     Route::get('home', function () {
-        return redirect('user/show');
+        return redirect('user/');
     });
     Route::get('user/show', 'UserController@show');
     Route::get('user/edit', 'UserController@edit');
     Route::post('user/edit', 'UserController@update');
+    //お気に入り表示画面
+
+    Route::get('favorite', 'FavoriteController@index');
 
     //ユーザー画像の追加分
     Route::get('/user', 'UserController@index')->name('user.index');
@@ -58,6 +61,11 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
     // Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
 
+    //indexから個人プロフィールへの遷移
+    Route::get('user/{id}', 'UserController@show');
+
+    //indexから個人プロフィールへの遷移
+
 
     //チェックボックステスト用
     Route::get('/', function () {
@@ -72,6 +80,7 @@ Route::group(['middleware' => 'auth:user'], function () {
         return redirect('/');
     });
     //チェックボックステスト用
+
 
 });
 

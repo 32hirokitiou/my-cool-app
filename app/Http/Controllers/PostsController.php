@@ -104,9 +104,8 @@ class PostsController extends Controller
 			// それ以外はすべてのニュースを取得する
 			$posts = Post::all();
 		}
-
-
-		return view('posts.index', ['posts' => $posts, 'title' => $title,]);
+		$auth_user = Auth::user();
+		return view('posts.index', ['posts' => $posts, 'title' => $title, 'auth_user' => $auth_user,]);
 	}
 
 	public function edit(Request $request)
@@ -142,6 +141,7 @@ class PostsController extends Controller
 		$post->fill($form)->save();
 
 		$post->tags()->sync($request->tags);
+
 		// これで全て保存する。リレーションのあるものも全て保存されるのか。tagはきていないみたい
 		// 以下を追記
 		$history = new History;
