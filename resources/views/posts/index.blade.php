@@ -1,6 +1,7 @@
 @extends('layouts.posts')
 @section('title', '登録済みニュースの一覧')
-
+<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('css/posts.css') }}" rel="stylesheet">
 @section('content')
 <div class="container">
     <div class="row">
@@ -52,7 +53,7 @@
                             <div>
                                 <a href="{{ action('PostsController@delete', ['id' => $post->id]) }}">削除</a>
                             </div>
-                        <td><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post"></td>
+                        <td><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail"></td>
                         </td>
                         <td>
 

@@ -38,6 +38,11 @@ Route::group(['middleware' => 'auth:user'], function () {
 
     Route::get('favorite', 'FavoriteController@index');
 
+    //ユーザーテンプレテスト
+    Route::get('child', 'UserController@test');
+    Route::get('common', 'UserController@common');
+    //ユーザーテンプレ
+
     //ユーザー画像の追加分
     Route::get('/user', 'UserController@index')->name('user.index');
     Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit');

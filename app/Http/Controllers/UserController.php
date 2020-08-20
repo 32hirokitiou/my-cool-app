@@ -119,4 +119,16 @@ class UserController extends Controller
 
         return redirect(route('user.userEdit'))->with('success', '保存しました。');
     }
+
+    public function test()
+
+    {
+        return view('child');
+    }
+
+    public function common()
+
+    {
+        return view('common');
+    }
 }
