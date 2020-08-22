@@ -1,5 +1,5 @@
 @extends('layouts.common')
 
-@section('comment')
+@section('content')
 common.blade.phpの画面です
 @endsection

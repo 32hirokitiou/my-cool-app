@@ -1,6 +1,5 @@
 @extends('layouts.posts')
 @section('title', '登録済みニュースの一覧')
-
 @section('content')
 <div class="container">
     <div class="row">
@@ -13,7 +12,7 @@
         <div class="col-md-8 mx-auto">
             <form action="{{ action('PostsController@index') }}" method="get">
                 <div class="form-group row">
-                    <label class="col-md-2 mx-auto"></label>
+                    <label class="col-md-2 mx-auto">タイトル</label>
                     <div class="col-md-8">
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -41,6 +40,7 @@
                     @foreach($posts as $post)
                     <tr>
                         <th>{{ $post->id }}</th>
+                        <th>{{ $post->timestamps }}</th>
                         <td>{{ \Str::limit($post->title, 100) }}</td>
                         <td><a href="/posts/{{ $post->id }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"> </td>
                         <td>
