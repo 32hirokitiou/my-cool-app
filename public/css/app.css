@@ -2308,6 +2308,7 @@ textarea.form-control {
 
 .form-text {
   display: block;
+  word-wrap: break-word;
   margin-top: 0.25rem;
 }
 

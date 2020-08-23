@@ -12,33 +12,103 @@ class TagTableSeeder extends Seeder
     public function run()
     {
 
-        // 1レコード
         $tag = new \App\Tag([
-            'name' => 'tag1',
-        ]);
-        $tag->save();
-        // 2レコード
-        $tag = new \App\Tag([
-            'name' => 'tag2',
+            'name' => '#プレーントゥ',
         ]);
         $tag->save();
 
         $tag = new \App\Tag([
-            'name' => 'tag3',
+            'name' => '#ストレートチップ',
         ]);
         $tag->save();
-        // 2レコード
+
         $tag = new \App\Tag([
-            'name' => 'tag4',
+            'name' => '#ホールカット',
         ]);
         $tag->save();
+
         $tag = new \App\Tag([
-            'name' => 'tag5',
+            'name' => '#ウィングチップ',
         ]);
         $tag->save();
-        // 2レコード
+
         $tag = new \App\Tag([
-            'name' => 'tag6',
+            'name' => '#Uチップ',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#モンクストラップ',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#ダブルモンクストラップ',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#ローファー',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#パンプス',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#サイドゴア',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#黒',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#茶',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#赤',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#紺',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#その他カラー',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#その他レザー用品',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#経年変化',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#ビンテージ',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#色落ち',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#鏡面磨き',
         ]);
         $tag->save();
     }

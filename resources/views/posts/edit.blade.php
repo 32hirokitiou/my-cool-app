@@ -1,7 +1,11 @@
-@extends('layouts.Posts')
-@section('title', 'ニュースの編集')
+<!DOCTYPE html>
+<link rel="stylesheet" href="{{ asset('/css/posts.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/common.css') }}">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-@section('content')
+@extends('layouts.common')
+@section('contents')
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 mx-auto">
@@ -35,29 +39,24 @@
                     </div>
                 </div>
 
-                @php
-
-
-                @endphp
-
                 <div class="form-group row">
                     <label class="col-md-2" for="tags">
-
-                        @foreach ($tags as $tag)
-                        @if ($form->tags->search(function($selectedTag, $key) use ($tag) {
-                        return $selectedTag->id == $tag->id;
-                        }) !== false)
-                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" checked>{{ $tag->name }}
-                        @else
-                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}
-                        @endif
-                        @endforeach
+                        タグ
 
                     </label>
 
                     <div class="col-md-10">
                         <div class="form-text text-info">
-                            現在選択中のタグ: @foreach ($form->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach
+                            @foreach ($tags as $tag)
+                            @if ($form->tags->search(function($selectedTag, $key) use ($tag) {
+                            return $selectedTag->id == $tag->id;
+                            }) !== false)
+                            <label><input type="checkbox" name="tags[]" value="{{ $tag->id }}" checked>{{ $tag->name }}</label>
+                            @else
+                            <label><input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}</label>
+                            @endif
+                            @endforeach
+                            <p>現在選択中のタグ: @foreach ($form->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach</p>
                         </div>
                     </div>
                 </div>

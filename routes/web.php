@@ -21,6 +21,10 @@ Route::get('/', function () {
     return redirect('/register');
 });
 Route::get('home', 'ItemsController@index');
+
+//Tag一覧検索用
+// Route::get('tags/index', 'TagsController@index');
+// Route::get('tags/show', 'TagsController@show');
 /*
 |--------------------------------------------------------------------------
 | 2) User ログイン後
@@ -56,6 +60,7 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::get('posts/delete', 'PostsController@delete');
     Route::get('posts/show', 'PostsController@show');
 
+
     //facvariteの確認
     Route::group(['prefix' => 'posts/{id}'], function () {
         Route::post('favorite', 'FavoriteController@store')->name('favorites.favorite');
@@ -86,7 +91,9 @@ Route::group(['middleware' => 'auth:user'], function () {
     });
     //チェックボックステスト用
 
-
+    //Tag一覧検索用
+    Route::get('tags/index', 'TagsController@index');
+    Route::get('tags/show', 'TagsController@show');
 });
 
 

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="{{ asset('/css/posts.css') }}">
+<link rel="stylesheet" href="{{ asset('/css/common.css') }}">
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <html>
 
 <head>

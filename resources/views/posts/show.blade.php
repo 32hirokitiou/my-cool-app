@@ -6,7 +6,6 @@
 @extends('layouts.common')
 @section('contents')
 
-
 <a href="{{ action('PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
 
 <div id="cardlayout-wrap">
@@ -28,6 +27,7 @@
     </section>
     @endforeach
 </div>
+
 @endsection
 
 

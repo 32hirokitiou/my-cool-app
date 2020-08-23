@@ -140,3 +140,14 @@ input[class="userForm"]:focus {
     font-weight: 100;
     color: #cc1237;
 }
+
+
+/* edit.bladeのチェックボックスの追加 */
+.label {
+    white-space: nowrap;
+    padding-right:0.3em;
+    margin-right: 2em;
+    display: block;
+    float: left; 
+    width: 100%;
+  }

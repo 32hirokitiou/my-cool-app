@@ -29,6 +29,8 @@
 </div>
 @endsection
 
+
+
 @extends('layouts.posts')
 @section('title', '登録済みニュースの一覧')
 
