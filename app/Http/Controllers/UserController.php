@@ -29,6 +29,37 @@ class UserController extends Controller
         return view('user.show', ['post' => $post, 'user' => $user,]);
     }
 
+    public function userShow(Request $request)
+    {
+        // $user = User::find($request->user_id);
+        // $auth_user = Auth::user();
+        // dd($user);
+        // return view('posts.userShow', ['user' => $user, 'auth_user' => $auth_user,'user' => $user,]);
+
+        //これが実装予定のもの
+        $post = Post::find($request->id);
+        //requestで受け取ったポストのid情報からPostの情報自体を取得する
+        $user = User::find($post->user_id);
+        //その後そのポスト情報にあるuser_idからユーザーの情報を取得
+        $posts = $user->posts;
+        $auth_user = Auth::user();
+        //そこからユーザーに紐づいているpostsを取得しuserShowに$postsとして送る
+        return view('user.userShow', ['posts' => $posts, 'auth_user' => $auth_user,]);
+    }
+
+
+    public function showDetail($id)
+    {
+        $post = Post::find($id);
+        if (is_null($post)) {
+            \Session::flash('err_msg', 'データがありません。');
+            return redirect('posts/show');
+        }
+        $user = Auth::user();
+        return view('posts.showdetail', ['post' => $post, 'user' => $user]);
+    }
+
+
     public function edit(Request $request)
     {
         $user = Auth::user();   #ログインユーザー情報を取得します。

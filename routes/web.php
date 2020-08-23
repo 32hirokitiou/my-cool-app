@@ -59,6 +59,8 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::post('posts/edit', 'PostsController@update');
     Route::get('posts/delete', 'PostsController@delete');
     Route::get('posts/show', 'PostsController@show');
+    //8月23日追加分
+    Route::get('user/userShow', 'UserController@userShow');
 
 
     //facvariteの確認

@@ -27,6 +27,7 @@ class PostsController extends Controller
 		$user = Auth::user();
 		return view('posts.show', ['posts' => $posts, 'user' => $user]);
 	}
+
 	public function showDetail($id)
 	{
 		$post = Post::find($id);
