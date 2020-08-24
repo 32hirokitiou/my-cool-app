@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
 
 class TagsController extends BaseController
 {
@@ -22,6 +23,7 @@ class TagsController extends BaseController
     {
         $tag = Tag::find($request->tag_id);
         // dd($tag->posts);
-        return view('tags/show', ['tag' => $tag]);
+        $auth_user = Auth::user();
+        return view('tags/show', ['tag' => $tag, 'auth_user' => $auth_user,]);
     }
 }
