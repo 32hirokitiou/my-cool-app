@@ -42,7 +42,6 @@
                 <div class="form-group row">
                     <label class="col-md-2" for="tags">
                         タグ
-
                     </label>
 
                     <div class="col-md-10">

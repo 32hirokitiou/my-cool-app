@@ -4,7 +4,6 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @extends('layouts.common')
 @section('contents')
-
 <div id="cardlayout-wrap">
     @foreach($tag->posts as $post)
     <section class="card-list">
