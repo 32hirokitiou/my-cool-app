@@ -7,7 +7,6 @@
 @section('contents')
 <div id="cardlayout-wrap">
     @foreach($posts as $post)
-
     <section class="card-list">
         <a class="card-link">
             <figure class="card-figure"><img src="{{ asset('storage/image/'.$post->image_path)}}"></figure>

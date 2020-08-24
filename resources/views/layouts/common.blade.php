@@ -14,7 +14,7 @@
         </h1>
         <ul class="nav-list">
             <li class="nav-list-item">
-                <a>HOME</a>
+                <a href="{{ action('PostsController@index') }}">HOME</a>
             </li>
             <li class="nav-list-item"><a href="{{ action('PostsController@add') }}">POST</a></li>
             <li class="nav-list-item"><a href="{{ action('PostsController@show') }}">MYITEMS</a></li>
