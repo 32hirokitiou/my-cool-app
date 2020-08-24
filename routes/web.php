@@ -35,22 +35,27 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::get('home', function () {
         return redirect('user/');
     });
+    Route::get('favorite', 'FavoriteController@index');
+    //お気に入り表示画面
+
     Route::get('user/show', 'UserController@show');
     Route::get('user/edit', 'UserController@edit');
     Route::post('user/edit', 'UserController@update');
-    //お気に入り表示画面
-
-    Route::get('favorite', 'FavoriteController@index');
+    //ユーザー画像の追加分
+    Route::get('/user', 'UserController@index')->name('user.index');
+    Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit');
+    Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate');
+    //ユーザー画像の追加分
+    Route::get('user/userShow', 'UserController@userShow'); //ユーザープロフィールからそのユーザーの投稿一覧に飛ぶ
+    //indexから個人プロフィールへの遷移
+    Route::get('user/{id}', 'UserController@show');
+    //indexから個人プロフィールへの遷移
 
     //ユーザーテンプレテスト
     Route::get('child', 'UserController@test');
     Route::get('common', 'UserController@common');
     //ユーザーテンプレ
 
-    //ユーザー画像の追加分
-    Route::get('/user', 'UserController@index')->name('user.index');
-    Route::get('/user/userEdit', 'UserController@userEdit')->name('user.userEdit');
-    Route::post('/user/userEdit', 'UserController@userUpdate')->name('user.userUpdate');
     //ユーザー画像の追加分
     Route::get('posts/add', 'PostsController@add');
     Route::post('posts/create', 'PostsController@create');
@@ -59,24 +64,15 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::post('posts/edit', 'PostsController@update');
     Route::get('posts/delete', 'PostsController@delete');
     Route::get('posts/show', 'PostsController@show');
-    //8月23日追加分
-    Route::get('user/userShow', 'UserController@userShow');
-
+    //詳細表示画面
+    Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
+    // Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
 
     //facvariteの確認
     Route::group(['prefix' => 'posts/{id}'], function () {
         Route::post('favorite', 'FavoriteController@store')->name('favorites.favorite');
         Route::delete('unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
     });
-
-    //詳細表示画面
-    Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
-    // Route::get('posts/{id}', 'PostsController@showDetail')->name('show');
-
-    //indexから個人プロフィールへの遷移
-    Route::get('user/{id}', 'UserController@show');
-
-    //indexから個人プロフィールへの遷移
 
 
     //チェックボックステスト用

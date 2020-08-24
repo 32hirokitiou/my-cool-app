@@ -3,6 +3,33 @@
 @section('content')
 @if ($user->id == $post->user->id )
 
+<div class="topWrapper">
+    @if(!empty($post->user->image_path))
+    <!-- <td><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"> </td> -->
+    <td><a href="{{ action('UserController@userShow', ['id' => $post->id]) }}"><img src="/storage/user/{{ $post->user->image_path }}" class="editThumbnail"></td>
+    @else
+    画像なし→ここにデフォでuserID1のデフォ画像を表示させる
+    @endif
+</div>
+
+<div class="labelTitle">Name</div>
+<div>
+    <td class="userForm">{{ $post->user->name }}</td>
+</div>
+
+<div class="labelTitle">自己紹介</div>
+@if($errors->has('name'))<div class="error">{{ $errors->first('name') }}</div>@endif
+<div>
+    <td class="userForm">{{ $post->user->comment }}</td>
+    @if($errors->has('comment'))<div class="error">{{ $errors->first('comment') }}</div>@endif
+</div>
+
+
+<div class="buttonSet">
+    <div class="btn btn-primary btn-sm" onclick="history.back()"></a>戻る</div>
+    <a href="{{ route('user.userEdit') }}" class="btn btn-primary btn-sm">編集</a>
+</div>
+
 <div class="container">
     <table class="table table-striped table-hover">
         <thead>
@@ -98,11 +125,10 @@
 
 
     <div class="buttonSet">
-        <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm">戻る</a>
+        <div class="btn btn-primary btn-sm" onclick="history.back()"></a>戻る</div>
     </div>
 
 </div>
-
 
 @endif
 @endsection

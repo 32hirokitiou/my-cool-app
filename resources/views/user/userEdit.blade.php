@@ -7,7 +7,6 @@
     <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-
     <div class="topWrapper">
         @if(!empty($authUser->image_path))
         <img src="/storage/user/{{ $authUser->image_path }}" class="editThumbnail">
@@ -42,8 +41,8 @@
         </div>
 
         <div class="buttonSet">
-            <input type="submit" name="send" value="ユーザー情報変更" class="btn btn-primary btn-sm btn-done">
-            <a href="{{ route('user.index') }}" class="btn btn-primary btn-sm">戻る</a>
+            <div class="btn btn-primary btn-sm" onclick="history.back()"></a>戻る</div>
+            <input type="submit" name="send" value="登録情報を変更する" class="btn btn-primary btn-sm btn-done">
         </div>
     </form>
 </div>
