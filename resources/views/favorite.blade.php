@@ -5,6 +5,9 @@
 
 @extends('layouts.common')
 @section('contents')
+
+<p class=page-title>FAVORITE</p>
+
 <div id="cardlayout-wrap">
     @foreach($posts as $post)
     @if ($auth_user->is_favorite($post->id))

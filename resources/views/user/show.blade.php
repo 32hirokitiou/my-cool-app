@@ -1,6 +1,6 @@
-@extends('layouts.app')
-@section('title','ユーザー情報')
-@section('content')
+@extends('layouts.common')
+
+@section('contents')
 <link rel="stylesheet" href="{{ asset('/css/font.css') }}">
 @if ($user->id == $post->user->id )
 <!-- 本人だったら編集画面リンクありを表示させる -->
@@ -47,7 +47,7 @@
     画像なし→ここにデフォでuserID1のデフォ画像を表示させる
     @endif
     <div class="profileDate">
-        <div class="labelTitle">Name</div>
+        <div class="labelTitle">名前</div>
         <div>
             <td class="userForm">{{ $post->user->name }}</td>
         </div>

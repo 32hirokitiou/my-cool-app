@@ -1,6 +1,6 @@
 @extends('layouts.common')
 @section('contents')
-
+<p class=page-title>SEARCH</p>
 <div class="tag-text">
     @foreach ($tags as $tag)
     <label class="tag-info">

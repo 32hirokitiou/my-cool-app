@@ -22,10 +22,10 @@
             <li class="nav-list-item"><a href="{{ action('TagsController@index') }}">SEARCH</a></li>
             <li class="nav-list-item">
                 @guest
-                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a href="{{ route('login') }}">{{ __('Register') }}</a>
                 {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                 @else
-                <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                <a href="{{ route('logout') }}">{{ __('Logout') }}</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     @csrf
                 </form>
@@ -39,6 +39,8 @@
 </head>
 
 <body>
+    <!-- 各ページでタイトルを個別に表示する -->
+    @yield('page_title')
     @yield('contents')
 </body>
 

@@ -5,7 +5,7 @@
 
 @extends('layouts.common')
 @section('contents')
-
+<p class=page-title>ページレイアウト見本</p>
 <div class="container">
     <div class="row">
         <div class="col-md-8 mx-auto">

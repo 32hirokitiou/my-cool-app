@@ -4,7 +4,9 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 @extends('layouts.common')
+@section('title','新しく写真を投稿したい')
 @section('contents')
+<p class=page-title>HOME</p>
 <div id="cardlayout-wrap">
     @foreach($posts as $post)
 

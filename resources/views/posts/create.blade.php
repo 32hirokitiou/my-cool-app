@@ -3,13 +3,12 @@
 <link rel="stylesheet" href="{{ asset('/css/common.css') }}">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @extends('layouts.common')
-@section('title', '新しく写真を投稿する')
-@section('contents')
 
+@section('contents')
+<p class=page-title>POST</p>
 <div class="container">
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <h2>新しく写真を投稿する</h2>
             <form action="{{ action('PostsController@create') }}" method="post" enctype="multipart/form-data">
                 @if (count($errors) > 0)
                 <ul>
