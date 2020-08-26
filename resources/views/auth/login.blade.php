@@ -1,8 +1,7 @@
 @extends('layouts.common')
 @section('contents')
 
-<p class=page-title>新規登録</p>
-
+<p class=page-title>LOGIN</p>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

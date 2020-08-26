@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','ユーザー情報')
 @section('content')
+<p class=page-title>HOME</p>
 <div class="container">
   <table class="table table-striped table-hover">
     <thead>

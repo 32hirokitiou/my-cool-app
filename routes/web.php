@@ -32,10 +32,11 @@ Auth::routes();
 */
 Route::group(['middleware' => 'auth:user'], function () {
     // Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::get('home', function () {
-        return redirect('posts/index');
-    });
+    // Route::get('/welcome', function () {
+    //     return redirect('posts/index');
+    // });
     //
 
     Route::get('favorite', 'FavoriteController@index');
@@ -95,8 +96,6 @@ Route::group(['middleware' => 'auth:user'], function () {
     Route::get('tags/index', 'TagsController@index');
     Route::get('tags/show', 'TagsController@show');
 });
-
-
 
 
 

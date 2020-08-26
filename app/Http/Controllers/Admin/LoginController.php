@@ -27,7 +27,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home'; // 変更
+    protected $redirectTo = '/posts/index'; // 変更
+    // '/admin/home'をposts/indexに変更
 
     /**
      * Create a new controller instance.

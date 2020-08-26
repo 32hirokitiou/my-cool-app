@@ -2,6 +2,7 @@
 @section('title','ユーザー情報変更')
 
 @section('content')
+<p class=page-title>PROFILE</p>
 <div class="container">
     @if (session('success'))
     <div class="alert alert-success">{{ session('success') }}</div>
