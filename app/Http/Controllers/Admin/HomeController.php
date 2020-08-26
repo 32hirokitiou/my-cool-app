@@ -1,10 +1,10 @@
 <?php
- 
+
 namespace App\Http\Controllers\Admin;  // Adminを追加
- 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
- 
+
 class HomeController extends Controller
 {
     /**
@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth:admin');  //変更
     }
- 
+
     /**
      * Show the application dashboard.
      *

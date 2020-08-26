@@ -5,6 +5,7 @@
 
 @extends('layouts.common')
 @section('contents')
+<p class=page-title>MYITEMS</p>
 <div class="create_post">
     <a href="{{ action('PostsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
 </div>

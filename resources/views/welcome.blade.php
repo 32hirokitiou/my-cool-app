@@ -1,3 +1,8 @@
+@extends('layouts.app')
+@section('title','ユーザー情報変更')
+
+@section('content')
+
 <!doctype html>
 <html>
 

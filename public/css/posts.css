@@ -87,6 +87,7 @@ a.card-link {
 
 .topWrapper {
     width: 150px;
+    padding: 50px 0px 50px;
     margin: 0 auto;
 }
 
@@ -151,3 +152,4 @@ input[class="userForm"]:focus {
     float: left; 
     width: 100%;
   }
+

@@ -12,7 +12,7 @@
 
     <section class="card-list">
         <a class="card-link">
-            <figure class="card-figure"><img src="{{ asset('storage/image/'.$post->image_path)}}"></figure>
+            <figure class="card-figure"><a href="/posts/{{ $post->id }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"></a></figure>
             <h2 class="card-title">{{ \Str::limit($post->title, 100) }}</h2>
             <h2 class="card-title">
                 @if ($auth_user->id != $post->user->id)

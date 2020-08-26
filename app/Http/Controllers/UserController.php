@@ -162,4 +162,10 @@ class UserController extends Controller
     {
         return view('common');
     }
+
+    public function getLogout()
+    {
+        Auth::logout();
+        return view()->route('home');
+    }
 }

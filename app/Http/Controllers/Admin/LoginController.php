@@ -55,6 +55,6 @@ class LoginController extends Controller
         $request->session()->flush();
         $request->session()->regenerate();
 
-        return redirect('/admin/login');  //変更
+        return redirect('login');  //変更
     }
 }
