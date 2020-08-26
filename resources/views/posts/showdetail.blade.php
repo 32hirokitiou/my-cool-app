@@ -8,38 +8,39 @@
 <p class=page-title>POSTDETAIL</p>
 
 @if (Auth::id() != $post->user->id)
+<div id="cardlayout-wrap">
+    <section class="card-lista">
+        <figure class="card-figurea">
+            <img src="{{ asset('storage/image/'.$post->image_path)}}"></a>
+        </figure>
+        <h2 class="card-titlea">{{ \Str::limit($post->title, 100) }}</h2>
+        <div class="form-text text-info">
+            @foreach ($post->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach
+        </div>
+        <p class="card-text-tax-detail"><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail-showdetail"></p>
+        </a>
+    </section>
 
-<section class="card-lista">
 
-    <figure class="card-figurea"><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"></figure>
-    <h2 class="card-titlea">{{ \Str::limit($post->title, 100) }}</h2>
-    <div>
-        <a href="{{ action('PostsController@edit', ['id' => $post->id]) }}">編集できない</a>
-    </div>
-    <div>
-        <a href="{{ action('PostsController@delete', ['id' => $post->id]) }}">削除できません</a>
-    </div>
-    <div class="form-text text-info">
-        現在選択中のタグ: @foreach ($post->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach
-    </div>
-</section>
-</div>
+    @else
+    <section class="card-lista">
 
-@else
-<section class="card-lista">
+        <figure class="card-figurea"><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"></figure>
+        <h2 class="card-titlea">{{ \Str::limit($post->title, 100) }}</h2>
 
-    <figure class="card-figurea"><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"></figure>
-    <h2 class="card-titlea">{{ \Str::limit($post->title, 100) }}</h2>
-    <div>
-        <a href="{{ action('PostsController@edit', ['id' => $post->id]) }}">編集</a>
-    </div>
-    <div>
-        <a href="{{ action('PostsController@delete', ['id' => $post->id]) }}">削除</a>
-    </div>
-    <div class="form-text text-info">
-        現在選択中のタグ: @foreach ($post->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach
-    </div>
-</section>
+        <div>
+            <a href="{{ action('PostsController@edit', ['id' => $post->id]) }}">編集</a>
+        </div>
+        <div>
+            <a href="{{ action('PostsController@delete', ['id' => $post->id]) }}">削除</a>
+        </div>
+        <div class="form-text text-info">
+            @foreach ($post->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach
+        </div>
+
+        </a>
+    </section>
+
 </div>
 
 @endif

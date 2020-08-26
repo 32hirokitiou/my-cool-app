@@ -20,6 +20,8 @@
         <div class="form-text text-info">
             @foreach ($post->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach
         </div>
+        <p class="card-text-tax"><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail"></p>
+        </a>
     </section>
     @endforeach
 </div>

@@ -18,13 +18,13 @@
                 </ul>
                 @endif
                 <div class="form-group row">
-                    <label class="col-md-2" for="title">タイトル</label>
+                    <label class="col-md-2" for="title">TITLE</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control" name="title" value="{{ old('title') }}">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-2" for="image">画像</label>
+                    <label class="col-md-2" for="image">PHOTO</label>
                     <div class="col-md-10">
                         <input type="file" class="form-control-file" name="image">
                     </div>
@@ -32,7 +32,7 @@
 
                 <div class="form-group row">
                     <label class="col-md-2" for="tags">
-                        タグ
+                        TAG
                     </label>
 
 
@@ -48,7 +48,7 @@
 
 
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="投稿する">
+                    <input type="submit" class="btn btn-primary" value="POST!">
 
                     <body></body>
             </form>

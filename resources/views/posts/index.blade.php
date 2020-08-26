@@ -25,6 +25,10 @@
                 {!! Form::submit('FAVORITE', ['class' => "button btn btn-success"]) !!}
                 {!! Form::close() !!}
                 @endif
+                @else
+                {!! Form::open(['route' => ['favorites.favorite', $post->id]]) !!}
+                {!! Form::submit('MYITEMS', ['class' => "button btn btn-success"]) !!}
+                {!! Form::close() !!}
                 @endif
 
             </h2>

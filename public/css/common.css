@@ -128,22 +128,39 @@ margin: 50px;
 }
 
 .card-lista {
-  text-align:center;
+  text-align: center;
   margin: 0.5em auto;
   padding: 0;
   width: 50%;
   height: 100%;
-  background: #f0f0f0;
+  background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);}
 
-.login-logout{
+.login-logout {
   font-size:10px;
   float:right;
 }
 
-.navbar-nav .nav-link{
+.navbar-nav .nav-link {
   padding-right: 20px;
   padding-top: 10px;
   float: right;
+  
+}
+
+.thumbnail-showdetail {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.card-text-tax-detail {
+  float:left;
+  display: block;
+margin: 0 0 0 auto;
+  padding: 1em;
+  color: #818181;
   
 }
