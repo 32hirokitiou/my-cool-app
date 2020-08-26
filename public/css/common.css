@@ -142,7 +142,8 @@ margin: 50px;
 }
 
 .navbar-nav .nav-link{
-
+  padding-right: 20px;
+  padding-top: 10px;
   float: right;
   
 }
