@@ -26,9 +26,7 @@
                 {!! Form::close() !!}
                 @endif
                 @else
-                {!! Form::open(['route' => ['favorites.favorite', $post->id]]) !!}
-                {!! Form::submit('MYITEMS', ['class' => "button btn btn-success"]) !!}
-                {!! Form::close() !!}
+                <p>{{$post->user->name}}</p>
                 @endif
 
             </h2>

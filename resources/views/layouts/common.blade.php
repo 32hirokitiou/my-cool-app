@@ -74,6 +74,7 @@
             </li>
             <li class="nav-list-item"><a href="{{ action('PostsController@add') }}">POST</a></li>
             <li class="nav-list-item"><a href="{{ action('PostsController@show') }}">MYITEMS</a></li>
+            <li class="nav-list-item"><a href="{{ action('UserController@show', ['post' => $post]) }}">PROFILE</a></li>
             <li class="nav-list-item"><a href="{{ action('FavoriteController@index') }}">FAVORITE</a></li>
             <li class="nav-list-item"><a href="{{ action('TagsController@index') }}">SEARCH</a></li>
             </li>

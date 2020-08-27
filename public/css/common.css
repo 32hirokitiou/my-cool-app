@@ -21,6 +21,7 @@ body {
 /* 追加分 */
 * {
   margin:0; padding:0;
+
 }
 
 header {
@@ -164,3 +165,26 @@ margin: 0 0 0 auto;
   color: #818181;
   
 }
+
+#text-info {
+  color: #6cb2eb !important;
+}
+.form-texta {
+  text-align: center;
+  display: block;
+  word-wrap: break-word;
+  margin-top: 0.25rem;
+  color: #6cb2eb !important;
+}
+
+.profiledetailEdit{
+  justify-content: center;
+  background: white;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+  

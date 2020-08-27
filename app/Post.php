@@ -18,7 +18,7 @@ class Post extends Model
 
   public static $rules = [
     'title' => 'required',
-    // 'image_path' => 'required',
+    'image_path' => 'required',
   ];
 
   // Postモデルに関連付けを行う

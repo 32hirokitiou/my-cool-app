@@ -5,11 +5,10 @@
 
 @extends('layouts.common')
 @section('contents')
-<p class=page-title>ページレイアウト見本</p>
+<p class=page-title>EDIT</p>
 <div class="container">
     <div class="row">
         <div class="col-md-8 mx-auto">
-            <h2>投稿編集</h2>
             <form action="{{ action('PostsController@update') }}" method="post" enctype="multipart/form-data">
                 @if (count($errors) > 0)
                 <ul>
@@ -24,16 +23,7 @@
                         <input type="text" class="form-control" name="title" value="{{ $form->title }}">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-md-2" for="image">画像</label>
-                    <div class="col-md-10">
-                        <input type="file" class="form-control-file" name="image">
-                        <div class="form-text text-info">
-                        </div>
-                        <div class="form-check">
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="form-group row">
                     <label class="col-md-2" for="tags">
@@ -51,7 +41,7 @@
                             <label><input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}</label>
                             @endif
                             @endforeach
-                            <p>現在選択中のタグ: @foreach ($form->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach</p>
+                            <p>現在のタグ: @foreach ($form->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach</p>
                         </div>
                     </div>
                 </div>
@@ -64,10 +54,12 @@
                     </div>
                 </div>
             </form>
-            {{-- 以下を追記--}}
+            {{-- 追加機能として検討中--}}
             <div class="row mt-5">
                 <div class="col-md-3 mx-auto">
-                    <h2>最終編集日</h2>
+                    <h6>
+                        <変更履歴>
+                    </h6>
                     <ul class="list-group">
                         @if ($form->histories != NULL)
                         @foreach ($form->histories as $history)
