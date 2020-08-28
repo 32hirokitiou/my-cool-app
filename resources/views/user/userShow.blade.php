@@ -5,7 +5,7 @@
 
 @extends('layouts.common')
 @section('contents')
-<p class=page-title>INDEX</p>
+<p class=page-title>INDEX</p>
 <div id="cardlayout-wrap">
     @foreach($posts as $post)
     <section class="card-list">
