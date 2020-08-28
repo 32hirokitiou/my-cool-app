@@ -7,7 +7,7 @@
 
     <header class="a">
         <h1 class="headline">
-            <p><span class="border-bottom-1">THE AGING</span></p>
+            <p><span class="border-bottom-1">THE AGaaaING</span></p>
             <p> @guest
                 <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                 {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
