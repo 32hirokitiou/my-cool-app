@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User;
 use App\Post;
 use App\History;
 use App\Tag;
+use Config\InterventionImage;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Validator;

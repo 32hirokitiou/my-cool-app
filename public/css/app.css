@@ -67,9 +67,9 @@ section {
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.5rem;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 3.0;
   color: #212529;
   text-align: left;
   background-color: #f8fafc;
@@ -239,7 +239,15 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
+  padding-right: 10px;
+  font-style: oblique;
+  color: rgba(0, 0, 0, 0.5);
 }
+/*
+label padding-right: 10px;
+font-style: oblique;
+color: rgba(0, 0, 0, 0.5);
+を追加 */
 
 button {
   border-radius: 0;

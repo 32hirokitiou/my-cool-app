@@ -41,10 +41,11 @@ header .headline{
 
 .border-bottom-1{
   padding: 100px 0px 50px 0px;
-  font-weight: 10px;
+  font-size: 22px;
   width: 100%;
   background-color:#72595900;
   color:black;
+  font-family:sans-serif;
 }
 
 .nav-list {
@@ -68,18 +69,22 @@ footer{
     color: black;
     text-align: center;
     background-color:#f8f9fa;
+    margin-top:200px;
 }
 ul.footer-menu li {
 display: inline;
+
 
 }
 
 .tag-text {
 display:flex;
 flex-wrap: wrap;
+width: 100%;
 padding: 100px;
 margin: 50px;
-
+font-style: oblique;
+text-align: center;
 }
 
 .tag-tex tag-info {
@@ -101,6 +106,7 @@ margin: 50px;
   text-align: center;   
   padding: 50px 0px ;
   text-decoration : underline;
+  font-style: oblique;
 }
 
 .card-link-detail{
@@ -174,7 +180,7 @@ margin: 0 0 0 auto;
   display: block;
   word-wrap: break-word;
   margin-top: 0.25rem;
-  color: black;
+  color:rgba(0, 0, 0, 0.5);
   font-style:oblique;
 }
 /* 変更追加分
@@ -279,4 +285,33 @@ font-style:oblique; */
 .btn-warning:not(:disabled):not(.disabled).active:focus,
 .show > .btn-warning.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(222, 207, 69, 0.5);
+}
+
+.tags_name{
+  color:pink;
+}
+
+.tag-text-wrapper {
+  display: inline-block;
+
+  }
+
+.tag-names{
+  margin: 0px 10px 0px 0px;
+  font-style: oblique;
+  float: left;
+
+}
+
+.myitem-name{
+  color:pink;
+  display: inline-block;
+  font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

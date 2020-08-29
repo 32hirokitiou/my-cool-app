@@ -44,7 +44,7 @@
     <!-- <td><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"> </td> -->
     <td><a href="{{ action('UserController@userShow', ['id' => $post->id]) }}"><img src="/storage/user/{{ $post->user->image_path }}" class="editThumbnail"></a></td>
     @else
-    画像なし→ここにデフォでuserID1のデフォ画像を表示させる
+    <p>画像が未設定です。</p>
     @endif
     <div class="profileDate">
         <div class="labelTitle">名前</div>

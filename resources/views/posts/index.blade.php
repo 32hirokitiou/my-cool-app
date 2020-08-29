@@ -26,7 +26,7 @@
                 {!! Form::close() !!}
                 @endif
                 @else
-                <p>{{$post->user->name}}</p>
+                <p class="myitem-name">MyITEM</p>
                 @endif
 
             </h2>

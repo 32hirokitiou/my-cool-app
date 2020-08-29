@@ -41,8 +41,8 @@
             @guest
             @if (Route::has('register'))
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}">{{ __('新しくアカウントを作成する方') }}</a>
-                <a class="nav-link" href="{{ route('login') }}">{{ __('アカウント登録済みの方') }}</a>
+                <a class="nav-link" href="{{ route('register') }}">{{ __('SIGNUP') }}</a>
+                <a class="nav-link" href="{{ route('login') }}">{{ __('LOGIN') }}</a>
             </li>
             @endif
             @else
@@ -82,7 +82,7 @@
 
 
         <h1 class="headline">
-            <p><span class="border-bottom-1">THE AGING</span></p>
+            <p><span class="border-bottom-1"> <a href="{{ action('PostsController@index') }}" class="nav-link">THE AGING</a></span></p>
         </h1>
     </header>
 </head>
@@ -95,6 +95,7 @@
     @yield('page_title')
     @yield('contents')
 </body>
+
 
 <footer>
     <ul class="footer-menu">

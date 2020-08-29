@@ -14,10 +14,11 @@
             <figure class="card-figure"><a href="/posts/{{ $post->id }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"></a></figure>
             <h2 class="card-title">{{ \Str::limit($post->title, 100) }}</h2>
             <div class="form-texta">
-                @foreach ($post->tags as $tag) {{ $tag->name }} {{"\n"}} @endforeach
-            </div>
-            <p class="card-text-tax"><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail"></p>
-        </a>
+                @foreach ($post->tags as $tag)
+                <a value="{{ $tag->name }}" class="tag-names"><a href="{{ action('TagsController@show', ['tag_id' => $tag->id]) }}">{{ $tag->name }}</a>
+                    @endforeach
+                    <p class="card-text-tax"><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail"></p>
+                </a>
     </section>
     @endforeach
 </div>

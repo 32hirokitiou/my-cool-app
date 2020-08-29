@@ -41,7 +41,7 @@ a.card-link {
     margin: 0.6em 0 0;
     color: #333;
     text-align: center;
-    font-size: 1.8em;
+    font-size: 1.3em;
 }
 
 /* カードレイアウトの説明文部分 */
@@ -51,6 +51,7 @@ a.card-link {
     padding: 1em;
     color: #818181;
     
+    
 }
 
 /* カードレイアウトを1カラムで配置 */
@@ -59,8 +60,15 @@ a.card-link {
     padding: 0;
     width: 96%;
     background:white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.08);
+    transition-duration: 0.5s;
 }
+
+.card-list:hover {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.32);
+
+}
+
 
 /* 画面幅768px以上の場合カードレイアウトを2カラムで配置 */
 @media all and (min-width: 768px) {
@@ -96,7 +104,8 @@ a.card-link {
     height: 30px;
     object-fit: cover;
     border-radius: 50%;
-    margin: 0 0 0 auto;
+    margin: 10px auto;
+    float:left;
 }
 
 .editThumbnail {
