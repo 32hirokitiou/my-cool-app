@@ -20,7 +20,7 @@
                 @if ($auth_user->id != $post->user->id)
                 @if ($auth_user->is_favorite($post->id))
                 {!! Form::open(['route' => ['favorites.unfavorite', $post->id], 'method' => 'delete']) !!}
-                {!! Form::submit('kieru', ['class' => "button btn btn-warning"]) !!}
+                {!! Form::submit('REMOVE FAVORITE', ['class' => "button btn btn-warning"]) !!}
                 {!! Form::close() !!}
                 @else
                 {!! Form::open(['route' => ['favorites.favorite', $post->id]]) !!}

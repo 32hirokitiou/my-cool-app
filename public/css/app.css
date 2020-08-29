@@ -170,10 +170,11 @@ sup {
 }
 
 a {
-  color: #3490dc;
+  color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
   background-color: transparent;
 }
+/* color: #3490dc;→rgba(0, 0, 0, 0.5);に変更した */
 
 a:hover {
   color: #1d68a7;
@@ -3411,10 +3412,13 @@ input[type=button].btn-block {
 .dropdown,
 .dropleft {
   position: relative;
+  background-color: #f8f9fa;
 }
+/* .dropleftにbackground-color: #f8f9fa;を追加 */
 
 .dropdown-toggle {
   white-space: nowrap;
+  
 }
 
 .dropdown-toggle::after {
@@ -3439,14 +3443,14 @@ input[type=button].btn-block {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 10rem;
+  min-width: 4rem;
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 0.9rem;
   color: #212529;
-  text-align: left;
+  text-align: center;
   list-style: none;
-  background-color: #fff;
+  background-color:#f8f9fa;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
@@ -3617,12 +3621,13 @@ input[type=button].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #212529;
+  color: rgba(0, 0, 0, 0.5);
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
   border: 0;
 }
+/* color: #212529;→rgba(0, 0, 0, 0.5)に変更 */
 
 .dropdown-item:hover,
 .dropdown-item:focus {
@@ -4596,6 +4601,7 @@ input[type=button].btn-block {
   align-items: center;
 }
 
+
 .navbar-toggler {
   padding: 0.25rem 0.75rem;
   font-size: 1.125rem;
@@ -4661,9 +4667,13 @@ input[type=button].btn-block {
   }
 
   .navbar-expand-sm .navbar-collapse {
-    display: flex !important;
+    display: inline-block;
     flex-basis: auto;
   }
+  /* //追加 */
+  /* /.navbar-expand-sm .navbar-collapseを下記の内容に変更
+  * display: flex !important; をdisplay: inline-block;に変更 */
+  /* //追加 */
 
   .navbar-expand-sm .navbar-toggler {
     display: none;
@@ -4711,9 +4721,13 @@ input[type=button].btn-block {
   }
 
   .navbar-expand-md .navbar-collapse {
-    display: flex !important;
+    display: inline-block;
     flex-basis: auto;
   }
+  /* //追加 */
+  /* /.navbar-expand-sm .navbar-collapseを下記の内容に変更
+  * display: flex !important; をdisplay: inline-block;に変更 */
+  /* //追加 */
 
   .navbar-expand-md .navbar-toggler {
     display: none;
@@ -4811,9 +4825,13 @@ input[type=button].btn-block {
   }
 
   .navbar-expand-xl .navbar-collapse {
-    display: flex !important;
+    display: inline-block;
     flex-basis: auto;
   }
+  /* //追加 */
+  /* /.navbar-expand-sm .navbar-collapseを下記の内容に変更
+  * display: flex !important; をdisplay: inline-block;に変更 */
+  /* //追加 */
 
   .navbar-expand-xl .navbar-toggler {
     display: none;

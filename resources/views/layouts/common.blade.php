@@ -54,7 +54,7 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('LOGOUT') }}
                     </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -65,21 +65,30 @@
             @endguest
         </ul>
 
+        <nav class="navbar navbar-expand-md  navbar-light bg-light">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#bs-navi" aria-controls="bs-navi" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="bs-navi">
+                <ul class="navbar-nav">
+                    <li class="nav-list-item"><a class="nav-link" href="{{ action('PostsController@add') }}">POST</a></li>
+                    <li class="nav-list-item"><a class="nav-link" href="{{ action('PostsController@show') }}">MYITEMS</a></li>
+                    <li class="nav-list-item"><a class="nav-link" href="{{ action('FavoriteController@index') }}">FAVORITE</a></li>
+                    <li class="nav-list-item"><a class="nav-link" href="{{ action('TagsController@index') }}">SEARCH</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
         <h1 class="headline">
             <p><span class="border-bottom-1">THE AGING</span></p>
         </h1>
-        <ul class="nav-list">
-            <li class="nav-list-item">
-                <a href="{{ action('PostsController@index') }}">HOME</a>
-            </li>
-            <li class="nav-list-item"><a href="{{ action('PostsController@add') }}">POST</a></li>
-            <li class="nav-list-item"><a href="{{ action('PostsController@show') }}">MYITEMS</a></li>
-            <li class="nav-list-item"><a href="{{ action('FavoriteController@index') }}">FAVORITE</a></li>
-            <li class="nav-list-item"><a href="{{ action('TagsController@index') }}">SEARCH</a></li>
-            </li>
-        </ul>
     </header>
 </head>
+
+
+
 
 <body>
     <!-- 各ページでタイトルを個別に表示する -->
@@ -89,12 +98,12 @@
 
 <footer>
     <ul class="footer-menu">
-        <li>home ｜</li>
-        <li>about ｜</li>
-        <li>service ｜</li>
-        <li>Contact Us</li>
+        <li><a href="{{ action('PostsController@add') }}">POST</a>｜</li>
+        <li><a href="{{ action('PostsController@show') }}">MYITEMS</a>｜</li>
+        <li><a href="{{ action('FavoriteController@index') }}">FAVORITE</a>｜</li>
+        <li><a href="{{ action('TagsController@index') }}">SEARCH</a></li>
     </ul>
-    <p>© All rights reserved by webcampnavi.</p>
+    <p>© All rights reserved by THE AGING</p>
 </footer>
 
 

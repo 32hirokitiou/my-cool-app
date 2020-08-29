@@ -11,7 +11,7 @@
         <div class="col-md-8 mx-auto">
             <form action="{{ action('PostsController@create') }}" method="post" enctype="multipart/form-data">
                 @if (count($errors) > 0)
-                <ul>
+                <ul class=>
                     @foreach($errors->all() as $e)
                     <li>{{ $e }}</li>
                     @endforeach
@@ -40,7 +40,7 @@
                         <div class="form-text text-info">
                             @foreach ($tags as $tag)
 
-                            <label><input type="checkbox" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}</label>
+                            <label><input type="checkbox" class="tagname" name="tags[]" value="{{ $tag->id }}">{{ $tag->name }}</label>
 
                             @endforeach
                         </div>
