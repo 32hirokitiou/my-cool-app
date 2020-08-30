@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('/css/common.css') }}">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @extends('layouts.common')
-
+@section('title','NEW POST')
 @section('contents')
 <p class=page-title>POST</p>
 <div class="container">

@@ -14,7 +14,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- <title>{{ config('app.name', 'Laravel') }}</title> -->
+
+    <title>{{ config('app.name')}}｜@yield('title')</title>
+
+
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -34,6 +39,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="example.css">
     <link rel="stylesheet" href="{{ asset('/css/common.css') }}">
+
+
     <header>
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav ml-auto ">
@@ -92,7 +99,6 @@
 
 <body>
     <!-- 各ページでタイトルを個別に表示する -->
-    @yield('page_title')
     @yield('contents')
 </body>
 

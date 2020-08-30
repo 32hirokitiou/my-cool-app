@@ -1,4 +1,5 @@
 @extends('layouts.common')
+@section('title','SEARCH')
 @section('contents')
 <p class=page-title>SEARCH</p>
 <div class="tag-text">

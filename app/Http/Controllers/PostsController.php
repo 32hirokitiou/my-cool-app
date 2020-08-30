@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User;
 use App\Post;
 use App\History;
 use App\Tag;
-use Config\InterventionImage;
+use Config\App\InterventionImage;
 use Carbon\Carbon;
 use Storage;
 use Illuminate\Support\Facades\Validator;
@@ -69,6 +69,8 @@ class PostsController extends Controller
 		// フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
 		if (isset($form['image'])) {
 			$path = $request->file('image')->store('public/image');
+			//ここで保存する前にリサイズをかける
+
 			//DBにはファイルをそのまま保存しない
 			//ファイル名だけ保存している
 			$post->image_path = basename($path);

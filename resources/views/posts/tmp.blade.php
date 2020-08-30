@@ -5,9 +5,9 @@
         <p class="card__cat">{{ \Str::limit($post->title, 100) }}</p>
         <time class="card__time" datetime="2020-01-09">変数で入れる2020.01.09</time>
     </div>
-    <h2 class="card__ttl">３秒で利用可能！効率化UPにつながるオススメのコピペパーツをご紹介します！</h2>
+    <h2 class="card__ttl"></h2>
     <p class="card__desc">
-        HTMLやCSSの組み合わせでよく使うデザインってありますよね。プログラミングの世界ではDRYという考え方がありますが、HTMLやCSSにも応用...
+
     </p>
 </article>
 @endforeach

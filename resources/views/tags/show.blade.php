@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ asset('/css/common.css') }}">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @extends('layouts.common')
+@section('title','TAG')
 @section('contents')
 <p class="page-title">{{$tag->name}}</p>
 <div id="cardlayout-wrap">

@@ -1,6 +1,5 @@
 @extends('layouts.common')
-@section('title','ユーザー情報変更')
-
+@section('title','USER EDIT')
 @section('contents')
 <p class=page-title>PROFILE</p>
 

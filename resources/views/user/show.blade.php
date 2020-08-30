@@ -1,5 +1,5 @@
 @extends('layouts.common')
-
+@section('title','PROFILE')
 @section('contents')
 <link rel="stylesheet" href="{{ asset('/css/font.css') }}">
 <p class=page-title>PROFILE</p>

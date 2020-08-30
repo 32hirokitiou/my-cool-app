@@ -4,6 +4,7 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 @extends('layouts.common')
+@section('title','EDIT')
 @section('contents')
 <p class=page-title>EDIT</p>
 <div class="container">

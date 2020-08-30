@@ -4,6 +4,7 @@
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 @extends('layouts.common')
+@section('title','POST DETAIL')
 @section('contents')
 <p class=page-title>POSTDETAIL</p>
 
