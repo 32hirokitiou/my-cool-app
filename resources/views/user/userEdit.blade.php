@@ -8,11 +8,8 @@
 @endif
 
 <div class="topWrapper">
-    @if(!empty($authUser->image_path))
     <img src="/storage/user/{{ $authUser->image_path }}" class="editThumbnail">
-    @else
-    画像なし→ここにデフォでuserID1のデフォ画像を表示させる
-    @endif
+
     <div class="profiledetailEdit">
         <form method="post" action="{{ route('user.userUpdate') }}" enctype="multipart/form-data">
             {{ csrf_field() }}

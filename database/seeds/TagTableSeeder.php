@@ -53,7 +53,7 @@ class TagTableSeeder extends Seeder
         $tag->save();
 
         $tag = new \App\Tag([
-            'name' => '#パンプス',
+            'name' => '#パンプス',
         ]);
         $tag->save();
 
@@ -83,7 +83,7 @@ class TagTableSeeder extends Seeder
         $tag->save();
 
         $tag = new \App\Tag([
-            'name' => '#その他カラー',
+            'name' => '#その他カラー',
         ]);
         $tag->save();
 
@@ -103,7 +103,7 @@ class TagTableSeeder extends Seeder
         $tag->save();
 
         $tag = new \App\Tag([
-            'name' => '#色落ち',
+            'name' => '#色落ち',
         ]);
         $tag->save();
 
