@@ -80,11 +80,11 @@ display: inline;
 .tag-text {
 display:flex;
 flex-wrap: wrap;
-width: 100%;
+width: 70%;
 padding: 100px;
-margin: 50px;
+margin: 0 auto;
 font-style: oblique;
-text-align: center;
+align-items:space-around：
 }
 
 .tag-tex tag-info {
@@ -314,4 +314,11 @@ font-style:oblique; */
     line-height: 1.6;
     border-radius: 0.25rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.created_at{
+  float:right;
+  padding: 20px 10px 0px 3px;
+  font-size: 12px;
+
 }

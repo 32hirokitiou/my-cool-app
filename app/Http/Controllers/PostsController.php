@@ -123,9 +123,10 @@ class PostsController extends Controller
 
 	public function update(Request $request)
 	{
-		$this->validate($request, Post::$rules);
+		$this->validate($request, Post::$rules_edit);
 		$post = Post::find($request->id);
 		$form = $request->all();
+
 		// 既存のコード16
 		if (isset($form['image'])) {
 			// isset — 変数が宣言されていること、そして NULL とは異なることを検査する

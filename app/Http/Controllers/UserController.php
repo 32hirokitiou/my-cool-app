@@ -68,10 +68,7 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        // Validationをかける
-        //   $this->validate($request, News::$rulxes);
-        // News Modelからデータを取得する
-        // $user = User::find($request->id);
+        $this->validate($request, User::$rules);
         $user = Auth::user();
         // id?で全ての情報を引っ張ってこれているのか？
         // 送信されてきたフォームデータを格納する
@@ -98,15 +95,10 @@ class UserController extends Controller
     public function userEdit(Request $request)
     {
         $authUser = Auth::user();
-        //デフォ追加分
-        //デフォのプロフィール画像設定でvalueに入れたいので
-        //$userのid1に写真を追加しておいてそれをデフォに設定する
-        //やり方がわからないので確認する
         $user =  User::all();
         //'user' => $user,も追加分
         //デフォ追加分
         $param = ['authUser' => $authUser, 'user' => $user,];
-
         return view('user.userEdit', $param);
     }
 
@@ -114,14 +106,13 @@ class UserController extends Controller
     {
         // Validator check
         $rules = [
-            'user_id' => 'integer|required',
-            'comment' => 'required',
+            'name' => 'required|max:20',
+            'comment' => 'required|max:20',
         ];
 
         $messages = [
-            'user_id.integer' => 'SystemError:システム管理者にお問い合わせください',
-            'user_id.required' => 'SystemError:システム管理者にお問い合わせください',
-            'comment.required' => 'コメントが未入力です',
+            'name' => '名前は20文字以内で記入してください',
+            'comment.required' => '20文字以内で記入してください。',
         ];
         $validator = Validator::make($request->all(), $rules, $messages);
         //dd確認済み。トークンいらない

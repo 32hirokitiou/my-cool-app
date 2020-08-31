@@ -18,9 +18,14 @@ class Post extends Model
 
   public static $rules = [
     'title' => 'required',
-    // 'image_path' => 'required',
-    'image_path' => 'dimensions:width=320,height=240'
+    'image' => 'required|image|mimes:jpeg,png,jpg,gif|dimensions:max_width=1200,min_height=300',
   ];
+
+  public static $rules_edit = [
+    'title' => 'required',
+  ];
+
+
 
   // Postモデルに関連付けを行う
   public function histories()

@@ -28,6 +28,7 @@
                 @endif
             </h2>
             <p class="card-text-tax"><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail"></p>
+            <h2 class="created_at">{{ $post->created_at->format('Y/m/d') }}</h2>
         </a>
     </section>
     @endforeach

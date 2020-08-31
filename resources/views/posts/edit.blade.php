@@ -25,7 +25,6 @@
                     </div>
                 </div>
 
-
                 <div class="form-group row">
                     <label class="col-md-2" for="tags">
                         タグ
@@ -55,21 +54,7 @@
                     </div>
                 </div>
             </form>
-            {{-- 追加機能として検討中--}}
-            <div class="row mt-5">
-                <div class="col-md-3 mx-auto">
-                    <h6>
-                        <変更履歴>
-                    </h6>
-                    <ul class="list-group">
-                        @if ($form->histories != NULL)
-                        @foreach ($form->histories as $history)
-                        <li class="list-group-item">{{ $history->edited_at }}</li>
-                        @endforeach
-                        @endif
-                    </ul>
-                </div>
-            </div>
+
 
         </div>
     </div>

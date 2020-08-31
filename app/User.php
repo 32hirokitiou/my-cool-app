@@ -27,6 +27,12 @@ class User extends Authenticatable
         //'image_path'が追加分
     ];
 
+    public static $rules = [
+        'comment' => 'required|max:20',
+    ];
+
+
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -59,7 +65,7 @@ class User extends Authenticatable
         //favorites関数に戻す Postに対して複数属している
         //ここのfavoritesが謎
         //普通の書き方じゃなダメなのか return $this->belongsToMany('App\Post');
-        //もし中間テーブルのcreated_at、updated_atタイムスタンプを自動的に保守したい場合は、withTimestampsメソッドをリレーション定義に付けてください。
+        //もし中間テーブルのcreated_at、updated_atタイムスタンプを自動的に保守したい場合は、withTimestampsメソッドをリレーション定義に付ける必要あり
         //
     }
 
@@ -74,7 +80,7 @@ class User extends Authenticatable
             return false;
         } else {
             $this->favorites()->attach($postId);
-            //モデルを結びつけている中間テーブルにレコードを挿入することにより、ユーザーに役割を持たせるにはattachメソッドを使います。
+            //モデルを結びつけている中間テーブルにレコードを挿入することにより、ユーザーに役割を持たせるにはattachメソッドを使用
             return true;
         }
     }

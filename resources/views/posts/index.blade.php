@@ -10,7 +10,6 @@
 <p class=page-title>HOME</p>
 <div id="cardlayout-wrap">
     @foreach($posts as $post)
-
     <section class="card-list">
         <a class="card-link">
             <figure class="card-figure"><a href="/posts/{{ $post->id }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"></a></figure>
@@ -27,12 +26,14 @@
                 {!! Form::close() !!}
                 @endif
                 @else
-                <p class="myitem-name">MyITEM</p>
+                <p class="myitem-name">MyITEM {{ $post->created_at }}</p>
                 @endif
 
             </h2>
-            <p class="card-text-tax"><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail"></p>
+            <p class="card-text-tax"><a href="{{ action('UserController@show', ['post' => $post]) }}"> <img src="{{ asset('storage/user/'.$post->user->image_path)}}" method="post" class="thumbnail"></a></p>
+            <h2 class="created_at">{{ $post->created_at->format('Y/m/d') }}</h2>
         </a>
+
     </section>
     @endforeach
 </div>
