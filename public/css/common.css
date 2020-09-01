@@ -21,7 +21,6 @@ body {
 /* 追加分 */
 * {
   margin:0; padding:0;
-  border-radius: 10px;
 }
 
 header {
@@ -140,6 +139,7 @@ margin: 50px;
   padding: 0;
   width: 750px;
   height: 825px;
+  border-radius: 10px;
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);}
 
@@ -349,4 +349,5 @@ width:447.828px;
 .figuredetail{
   width: 650px;
   height: 660px;
+  border-radius: 10px;
 }
