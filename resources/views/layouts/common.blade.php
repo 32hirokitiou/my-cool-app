@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="{{ asset('/css/posts.css') }}">
 <link rel="stylesheet" href="{{ asset('/css/common.css') }}">
+<link rel="shortcut icon" href="{{ asset('icon/favicon.ico') }}">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <!--追加-->
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
