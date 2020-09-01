@@ -12,7 +12,7 @@
 <div id="cardlayout-wrap">
     <section class="card-lista">
         <figure class="card-figurea">
-            <img src="{{ asset('storage/image/'.$post->image_path)}}"></a>
+            <img src="{{ asset('storage/image/'.$post->image_path)}}" class="figuredetail"></a>
         </figure>
         <h2 class="card-titlea">{{ \Str::limit($post->title, 100) }}</h2>
         <div class="form-texta text-info">
@@ -27,7 +27,7 @@
     @else
     <section class="card-lista">
 
-        <figure class="card-figurea"><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}"></a></figure>
+        <figure class="card-figurea"><a href="{{ action('PostsController@edit', ['id' => $post->id]) }}"><img src="{{ asset('storage/image/'.$post->image_path)}}" class="figuredetail"></a></figure>
         <h2 class="card-titlea">{{ \Str::limit($post->title, 100) }}</h2>
 
         <div>
