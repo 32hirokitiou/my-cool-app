@@ -111,5 +111,40 @@ class TagTableSeeder extends Seeder
             'name' => '#鏡面磨き',
         ]);
         $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#使用後1年未満',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#使用後3年未満',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#使用後5年未満',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#新品',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#起毛素材',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#エナメル',
+        ]);
+        $tag->save();
+
+        $tag = new \App\Tag([
+            'name' => '#特殊革',
+        ]);
+        $tag->save();
     }
 }
