@@ -26,7 +26,7 @@
                 {!! Form::close() !!}
                 @endif
                 @else
-                <p class="myitem-name">MyITEM {{ $post->created_at }}</p>
+                <p class="myitem-name">MyITEM</p>
                 @endif
 
             </h2>

@@ -21,7 +21,7 @@ body {
 /* 追加分 */
 * {
   margin:0; padding:0;
-
+  border-radius: 10px;
 }
 
 header {
@@ -183,7 +183,19 @@ margin: 0 0 0 auto;
   margin-top: 0.25rem;
   color:rgba(0, 0, 0, 0.5);
   font-style:oblique;
+  padding:0px 10px 0px 10px;
 }
+
+.form-texttag {
+  text-align: center;
+  display: block;
+  word-wrap: break-word;
+  margin-top: 0.25rem;
+  color:rgba(0, 0, 0, 0.5);
+  font-style:oblique;
+  padding:0px 80px 0px 80px;
+}
+
 /* 変更追加分
 margin-top: 0.25rem;→10
 font-weight: bolder;
@@ -305,16 +317,26 @@ font-style:oblique; */
 }
 
 .myitem-name{
-  color:pink;
-  display: inline-block;
-  font-weight: 400;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0.375rem 0.75rem;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    border-radius: 0.25rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  box-sizing:border-box;
+color:white;
+display:block;
+font-family:Raleway, sans-serif;
+font-size:10.4px;
+font-weight:500;
+height:37px;
+line-height:12.48px;
+margin-bottom:0px;
+margin-left:0px;
+margin-right:0px;
+margin-top:0px;
+padding-bottom:0px;
+padding-left:0px;
+padding-right:0px;
+padding-top:0px;
+text-align:center;
+text-size-adjust:100%;
+width:447.828px;
+-webkit-tap-highlight-color:rgba(0, 0, 0, 0);5s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .created_at{

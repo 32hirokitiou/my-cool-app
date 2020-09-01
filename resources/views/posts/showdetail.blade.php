@@ -15,7 +15,7 @@
             <img src="{{ asset('storage/image/'.$post->image_path)}}" class="figuredetail"></a>
         </figure>
         <h2 class="card-titlea">{{ \Str::limit($post->title, 100) }}</h2>
-        <div class="form-texta text-info">
+        <div class="form-texttag text-info">
             @foreach ($post->tags as $tag)
             <a value="{{ $tag->name }}" class="tag-names"><a href="{{ action('TagsController@show', ['tag_id' => $tag->id]) }}">{{ $tag->name }}</a>
                 @endforeach
